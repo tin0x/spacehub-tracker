@@ -1,0 +1,12 @@
+
+@theme {
+    --color-bg-primary: #121417;
+    --color-bg-surface: #293038;
+
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #9CABBA;
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-circle: 50%;
+}
