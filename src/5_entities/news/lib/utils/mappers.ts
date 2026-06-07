@@ -1,6 +1,6 @@
-import type { Article, ArticlesDTO } from "@entities/news/types.ts";
+import type { Article, ArticleDTO } from "@entities/news/types.ts";
 
-export const mapArticle = (dto: ArticlesDTO): Article => ({
+export const mapArticle = (dto: ArticleDTO): Article => ({
   id: dto.id,
   title: dto.title,
   author: dto.authors?.[0]?.name ?? "unknown",

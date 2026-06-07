@@ -1,4 +1,4 @@
-export type ArticlesDTO = {
+export type ArticleDTO = {
   id: number;
   title: string;
   authors: [
@@ -28,4 +28,15 @@ export type Article = {
 
 export type LimitedArticlesArgs = {
   limit: number;
+};
+
+export type ArticlesArgs = {
+  limit: number;
+  offset: number;
+  ordering: string;
+  search?: string;
+};
+
+export type CurrentArticleArgs = {
+  articleId: number;
 };
