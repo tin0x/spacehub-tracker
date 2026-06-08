@@ -1,8 +1,8 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from "redux-persist/es/constants";
-import { persistReducer, persistStore } from "redux-persist";
-import { persistConfig } from "@app/persist/persistConfig.ts";
-import { baseNewsApi } from "@shared/api/baseNewsApi.ts";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist/es/constants';
+import { persistReducer, persistStore } from 'redux-persist';
+import { persistConfig } from '@app/persist/persistConfig.ts';
+import { baseNewsApi } from '@shared/api/baseNewsApi.ts';
 
 const rootReducer = combineReducers({
   [baseNewsApi.reducerPath]: baseNewsApi.reducer,

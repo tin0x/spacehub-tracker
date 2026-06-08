@@ -1,10 +1,10 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "@app/layout/ui/Layout.tsx";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from '@app/layout/ui/Layout.tsx';
 
 const App = () => {
   const routes = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       element: <Layout />,
       children: [
         {
@@ -12,7 +12,7 @@ const App = () => {
           element: <HomePage />,
         },
         {
-          path: "*",
+          path: '*',
           element: <NotFoundPage />,
         },
       ],

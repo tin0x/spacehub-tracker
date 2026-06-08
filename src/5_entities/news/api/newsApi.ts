@@ -1,21 +1,21 @@
-import { baseNewsApi } from "@shared/api/baseNewsApi.ts";
-import { mapArticle } from "@entities/news/lib/utils/mappers.ts";
+import { baseNewsApi } from '@shared/api/baseNewsApi.ts';
+import { mapArticle } from '@entities/news/lib/mappers.ts';
 import type {
   Article,
   ArticleDTO,
   ArticlesArgs,
   CurrentArticleArgs,
   LimitedArticlesArgs,
-} from "@entities/news/types.ts";
+} from '@entities/news/types.ts';
 
 const newsApi = baseNewsApi.injectEndpoints({
   endpoints: (build) => ({
     getLimitedArticles: build.query<Article[], LimitedArticlesArgs>({
       query: ({ limit }) => ({
-        url: "/articles",
+        url: '/articles',
         params: {
           limit,
-          ordering: "-published_at",
+          ordering: '-published_at',
         },
       }),
       transformResponse: (response: { results: ArticleDTO[] }): Article[] => {
@@ -24,7 +24,7 @@ const newsApi = baseNewsApi.injectEndpoints({
     }),
     getArticlesByNavigation: build.query<Article[], ArticlesArgs>({
       query: ({ limit, offset, ordering, search }) => ({
-        url: "/articles",
+        url: '/articles',
         params: {
           limit,
           offset,

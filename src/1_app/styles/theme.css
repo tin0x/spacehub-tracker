@@ -1,12 +1,11 @@
-
 @theme {
-    --color-bg-primary: #121417;
-    --color-bg-surface: #293038;
+  --color-bg-primary: #121417;
+  --color-bg-surface: #293038;
 
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #9CABBA;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9cabba;
 
-    --rounded-custom-sm: 8px;
-    --rounded-custom-md: 12px;
-    --rounded-custom-circle: 50%;
+  --rounded-custom-sm: 8px;
+  --rounded-custom-md: 12px;
+  --rounded-custom-circle: 50%;
 }

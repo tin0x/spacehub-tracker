@@ -1,15 +1,15 @@
-
 @layer base {
-    html, body {
-        height: 100%;
-    }
+  html,
+  body {
+    height: 100%;
+  }
 
-    html {
-        font-size: 100%;
-    }
+  html {
+    font-size: 100%;
+  }
 
-    body {
-        font-family: 'SpaceGrotesk', 'Arial', sans-serif;
-        background-color: red;
-    }
+  body {
+    font-family: 'SpaceGrotesk', 'Arial', sans-serif;
+    background-color: red;
+  }
 }
