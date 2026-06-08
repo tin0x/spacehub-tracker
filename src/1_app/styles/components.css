@@ -1,0 +1,6 @@
+
+@layer components {
+    .accentWrapper {
+        @apply bg-bg-surface rounded-custom-md;
+    }
+}

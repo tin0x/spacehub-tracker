@@ -6,7 +6,7 @@
     --color-text-primary: #ffffff;
     --color-text-secondary: #9CABBA;
 
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-circle: 50%;
+    --rounded-custom-sm: 8px;
+    --rounded-custom-md: 12px;
+    --rounded-custom-circle: 50%;
 }
