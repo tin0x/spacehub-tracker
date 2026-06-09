@@ -21,6 +21,7 @@ const astronautApi = baseSpaceDevsApi.injectEndpoints({
           has_flown: hasFlown,
           nationality,
           search,
+          mode: 'list',
         },
       }),
       transformResponse: (response: { results: AstronautPreviewDTO[] }): AstronautPreview[] => {
@@ -30,6 +31,9 @@ const astronautApi = baseSpaceDevsApi.injectEndpoints({
     getAstronautById: build.query<Astronaut, AstronautArgs>({
       query: ({ astronautId }) => ({
         url: `/astronauts/${astronautId}`,
+        params: {
+          mode: 'normal',
+        },
       }),
       transformResponse: (response: AstronautDTO): Astronaut => {
         return mapAstronaut(response);
@@ -38,4 +42,4 @@ const astronautApi = baseSpaceDevsApi.injectEndpoints({
   }),
 });
 
-export const { useGetAstronautsByNavigationQuery } = astronautApi;
+export const { useGetAstronautsByNavigationQuery, useGetAstronautByIdQuery } = astronautApi;

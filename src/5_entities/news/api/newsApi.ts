@@ -36,7 +36,7 @@ const newsApi = baseNewsApi.injectEndpoints({
         return response.results.map(mapArticle);
       },
     }),
-    getCurrentArticle: build.query<Article, CurrentArticleArgs>({
+    getArticleById: build.query<Article, CurrentArticleArgs>({
       query: ({ articleId }) => ({
         url: `/articles/${articleId}`,
       }),
@@ -47,4 +47,4 @@ const newsApi = baseNewsApi.injectEndpoints({
   }),
 });
 
-export const { useGetLimitedArticlesQuery, useGetArticlesByNavigationQuery, useGetCurrentArticleQuery } = newsApi;
+export const { useGetLimitedArticlesQuery, useGetArticlesByNavigationQuery, useGetArticleByIdQuery } = newsApi;
