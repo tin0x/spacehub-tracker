@@ -7,6 +7,7 @@ export type AgencyPreviewArgs = {
 };
 
 export type AgencyPreviewDTO = {
+  id: number;
   name: string;
   country: {
     alpha_3_code: string;
@@ -18,6 +19,7 @@ export type AgencyPreviewDTO = {
 };
 
 export type AgencyPreview = {
+  id: number;
   name: string;
   country: string;
   logo: {
@@ -31,6 +33,7 @@ export type CurrentAgencyArgs = {
 };
 
 export type CurrentAgencyDTO = {
+  id: number;
   name: string;
   type: {
     name: string;
@@ -64,6 +67,7 @@ export type CurrentAgencyDTO = {
 };
 
 export type CurrentAgency = {
+  id: number;
   name: string;
   type: string;
   country: string;

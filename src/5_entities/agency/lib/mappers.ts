@@ -1,6 +1,7 @@
 import type { AgencyPreview, AgencyPreviewDTO, CurrentAgency, CurrentAgencyDTO } from '@entities/agency/types.ts';
 
 export const mapAgencyPreview = (dto: AgencyPreviewDTO): AgencyPreview => ({
+  id: dto.id,
   name: dto.name,
   country: dto.country?.[0]?.alpha_3_code ?? 'unknown',
   logo: {
@@ -10,6 +11,7 @@ export const mapAgencyPreview = (dto: AgencyPreviewDTO): AgencyPreview => ({
 });
 
 export const mapCurrentAgency = (dto: CurrentAgencyDTO): CurrentAgency => ({
+  id: dto.id,
   name: dto.name,
   type: dto.type.name,
   country: dto.country?.[0]?.alpha_3_code ?? 'unknown',
