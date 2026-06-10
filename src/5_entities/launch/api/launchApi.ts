@@ -28,7 +28,7 @@ const launchApi = baseSpaceDevsApi.injectEndpoints({
     }),
     getLaunchById: build.query({
       query: ({ launchId }) => ({
-        url: `/launchs/${launchId}`,
+        url: `/launches/${launchId}`,
       }),
       transformResponse: (response: CurrentLaunchDTO): CurrentLaunch => {
         return mapCurrentLaunch(response);
