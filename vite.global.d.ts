@@ -5,7 +5,7 @@ declare module 'redux-persist/lib/storage' {
 }
 
 declare module '*.svg?react' {
-  import type { SVGProps } from 'react';
-  const SVG: SVGProps<SVGSVGElement>;
+  import React from 'react';
+  const SVG: React.FC<React.SVGProps<SVGSVGElement>>;
   export default SVG;
 }
