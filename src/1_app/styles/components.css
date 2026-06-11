@@ -1,5 +1,3 @@
-@layer components {
-  .accentWrapper {
-    @apply bg-bg-surface rounded-custom-md;
-  }
+@utility accentWrapper {
+  @apply bg-surface rounded-custom-md;
 }

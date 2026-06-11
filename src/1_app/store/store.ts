@@ -3,8 +3,10 @@ import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist
 import { persistReducer, persistStore } from 'redux-persist';
 import { persistConfig } from '@app/persist/persistConfig.ts';
 import { baseNewsApi } from '@shared/api/baseNewsApi.ts';
+import { baseSpaceDevsApi } from '@shared/api/baseSpaceDevsApi.ts';
 
 const rootReducer = combineReducers({
+  [baseSpaceDevsApi.reducerPath]: baseSpaceDevsApi.reducer,
   [baseNewsApi.reducerPath]: baseNewsApi.reducer,
 });
 
@@ -17,7 +19,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(baseNewsApi.middleware),
+    })
+      .concat(baseSpaceDevsApi.middleware)
+      .concat(baseNewsApi.middleware),
 });
 
 export const persistor = persistStore(store);
