@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from '@app/layout/ui/Layout.tsx';
+import HomePage from '@pages/home-page/ui/HomePage.tsx';
+import NotFoundPage from '@pages/not-found-page/ui/NotFoundPage.tsx';
 
 const App = () => {
   const routes = createBrowserRouter([
