@@ -11,7 +11,9 @@ const NavigationWidget: React.FC = () => {
           <li key={item.title}>
             <NavLink
               className={({ isActive }) =>
-                cn('border-b-2 border-transparent py-2', 'hover:border-surface', { 'border-surface': isActive })
+                cn('border-b-2 border-transparent py-2 text-lg', 'hover:border-surface', {
+                  'border-surface': isActive,
+                })
               }
               to={item.link}
             >

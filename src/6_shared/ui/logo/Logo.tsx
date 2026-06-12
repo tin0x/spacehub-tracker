@@ -5,9 +5,9 @@ import LogoIcon from '@shared/assets/icons/logo.svg?react';
 
 const Logo: React.FC<LogoProps> = ({ pathTo }) => {
   return (
-    <Link className="flex gap-x-4.5" to={pathTo}>
-      <LogoIcon className="h-4 w-4" />
-      <span className="text-text-primary text- text-lg font-bold">SpaceLaunch</span>
+    <Link className="flex items-center gap-x-4.5" to={pathTo}>
+      <LogoIcon className="h-7 w-7" />
+      <span className="text-text-primary text- text-2xl font-bold">SpaceHub</span>
     </Link>
   );
 };
