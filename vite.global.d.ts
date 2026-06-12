@@ -1,4 +1,4 @@
-declare module 'redux-persist/lib/storage' {
+declare module 'redux-persist/es/storage' {
   import { WebStorage } from 'redux-persist';
   const storage: WebStorage;
   export default storage;
