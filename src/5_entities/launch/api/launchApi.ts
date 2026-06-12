@@ -5,8 +5,10 @@ import type {
   LaunchPreview,
   LaunchPreviewArgs,
   LaunchPreviewDTO,
+  UpcomingLaunch,
+  UpcomingLaunchDTO,
 } from '@entities/launch/types.ts';
-import { mapCurrentLaunch, mapLaunchPreview } from '@entities/launch/lib/mappers.ts';
+import { mapCurrentLaunch, mapLaunchPreview, mapUpcomingLaunch } from '@entities/launch/lib/mappers.ts';
 
 const launchApi = baseSpaceDevsApi.injectEndpoints({
   endpoints: (build) => ({
@@ -34,7 +36,19 @@ const launchApi = baseSpaceDevsApi.injectEndpoints({
         return mapCurrentLaunch(response);
       },
     }),
+    getUpcomingLaunch: build.query<UpcomingLaunch, void>({
+      query: () => ({
+        url: '/launches/upcoming',
+        params: {
+          limit: 1,
+          mode: 'detailed',
+        },
+      }),
+      transformResponse: (response: { results: UpcomingLaunchDTO[] }): UpcomingLaunch => {
+        return response.results.map(mapUpcomingLaunch)[0];
+      },
+    }),
   }),
 });
 
-export const { useGetLaunchesByNavigationQuery, useGetLaunchByIdQuery } = launchApi;
+export const { useGetLaunchesByNavigationQuery, useGetLaunchByIdQuery, useGetUpcomingLaunchQuery } = launchApi;

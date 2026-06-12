@@ -104,3 +104,55 @@ export type CurrentLaunch = {
     type: string;
   } | null;
 };
+
+export type UpcomingLaunchDTO = {
+  id: string;
+  name: string;
+  window_start: string;
+  window_end: string;
+  image: {
+    name: string;
+    image_url: string;
+  };
+  rocket: {
+    configuration: {
+      name: string;
+    };
+  };
+  mission: {
+    type: string;
+    description: string;
+  };
+  vid_urls: {
+    title: string;
+    source: string;
+    feature_image: string;
+    url: string;
+    type: {
+      name: string;
+    };
+  }[];
+};
+
+export type UpcomingLaunch = {
+  id: string;
+  name: string;
+  windowStart: string;
+  windowEnd: string;
+  image: {
+    name: string;
+    url: string;
+  };
+  rocket: string;
+  mission: {
+    type: string;
+    description: string;
+  };
+  video: {
+    title: string;
+    domain: string;
+    image: string;
+    url: string;
+    type: string;
+  } | null;
+};
