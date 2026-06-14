@@ -6,6 +6,7 @@ import type {
   UpcomingLaunch,
   UpcomingLaunchDTO,
 } from '@entities/launch/types.ts';
+import { convertTime } from '@shared/lib/utils/convertTime.ts';
 
 const mapVideo = (dto: CurrentLaunchDTO | UpcomingLaunchDTO) => {
   const video =
@@ -20,6 +21,7 @@ const mapVideo = (dto: CurrentLaunchDTO | UpcomingLaunchDTO) => {
     domain: video.source,
     image: video.feature_image,
     url: video.url,
+    videoId: new URL(video.url).searchParams.get('v') ?? null,
     type: video.type.name,
   };
 };
@@ -32,15 +34,16 @@ export const mapLaunchPreview = (dto: LaunchPreviewDTO): LaunchPreview => ({
 });
 
 export const mapCurrentLaunch = (dto: CurrentLaunchDTO): CurrentLaunch => ({
-  id: dto.id,
-  name: dto.name,
-  status: {
-    name: dto.status.abbrev,
-    description: dto.status.description,
+  launchInfo: {
+    name: dto.name,
+    image: dto.image.image_url,
+    rocket: dto.rocket.configuration.name,
+    pad: dto.pad.name,
+    status: {
+      name: dto.status.abbrev,
+      description: dto.status.description,
+    },
   },
-  image: dto.image.image_url,
-  startTime: dto.window_start,
-  endTime: dto.window_end,
   provider: {
     id: dto.launch_service_provider.id,
     name: dto.launch_service_provider.name,
@@ -49,28 +52,30 @@ export const mapCurrentLaunch = (dto: CurrentLaunchDTO): CurrentLaunch => ({
     admin: dto.launch_service_provider.administrator,
     logo: dto.launch_service_provider.logo.thumbnail_url,
   },
-  rocket: {
-    id: dto.rocket.id,
-    name: dto.rocket.configuration.name,
-  },
-  pad: dto.pad.name,
-  isWebcast: dto.webcast_live,
   video: mapVideo(dto),
 });
 
-export const mapUpcomingLaunch = (dto: UpcomingLaunchDTO): UpcomingLaunch => ({
-  id: dto.id,
-  name: dto.name,
-  windowStart: dto.window_start,
-  windowEnd: dto.window_end,
-  image: {
-    name: dto.image.name,
-    url: dto.image.image_url,
-  },
-  rocket: dto.rocket.configuration.name,
-  mission: {
-    type: dto.mission.type,
-    description: dto.mission.description,
-  },
-  video: mapVideo(dto),
-});
+export const mapUpcomingLaunch = (dto: UpcomingLaunchDTO): UpcomingLaunch => {
+  const start = dto.window_start ? new Date(dto.window_start).getTime() : 0;
+  const end = dto.window_end ? new Date(dto.window_end).getTime() : 0;
+  const windowDiffLaunch = end - start;
+
+  return {
+    video: mapVideo(dto),
+    fallback: {
+      name: dto.image.name,
+      url: dto.image.image_url,
+    },
+    heading: {
+      name: dto.name,
+      description: `Launch Date: ${new Date(dto.window_start).toISOString().replace('T', ' ').slice(0, 19)} UTC`,
+    },
+    timer: start,
+    mission: {
+      description: dto.mission.description,
+      type: dto.mission.type,
+      rocket: dto.rocket.configuration.name,
+      launchWindow: `${convertTime(windowDiffLaunch).hours.toString()} hours`,
+    },
+  };
+};

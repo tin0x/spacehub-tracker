@@ -25,7 +25,6 @@ export type LaunchPreview = {
 };
 
 export type CurrentLaunchDTO = {
-  id: string;
   name: string;
   status: {
     abbrev: string;
@@ -52,7 +51,6 @@ export type CurrentLaunchDTO = {
     };
   };
   rocket: {
-    id: number;
     configuration: {
       name: string;
     };
@@ -60,7 +58,6 @@ export type CurrentLaunchDTO = {
   pad: {
     name: string;
   };
-  webcast_live: boolean;
   vid_urls: {
     title: string;
     source: string;
@@ -73,15 +70,16 @@ export type CurrentLaunchDTO = {
 };
 
 export type CurrentLaunch = {
-  id: string;
-  name: string;
-  status: {
+  launchInfo: {
     name: string;
-    description: string;
+    rocket: string;
+    pad: string;
+    image: string;
+    status: {
+      name: string;
+      description: string;
+    };
   };
-  image: string;
-  startTime: string;
-  endTime: string;
   provider: {
     id: number;
     name: string;
@@ -90,23 +88,17 @@ export type CurrentLaunch = {
     admin: string;
     logo: string;
   };
-  rocket: {
-    id: number;
-    name: string;
-  };
-  pad: string;
-  isWebcast: boolean;
   video: {
     title: string;
     domain: string;
     image: string;
     url: string;
+    videoId: string | null;
     type: string;
   } | null;
 };
 
 export type UpcomingLaunchDTO = {
-  id: string;
   name: string;
   window_start: string;
   window_end: string;
@@ -135,24 +127,27 @@ export type UpcomingLaunchDTO = {
 };
 
 export type UpcomingLaunch = {
-  id: string;
-  name: string;
-  windowStart: string;
-  windowEnd: string;
-  image: {
-    name: string;
-    url: string;
-  };
-  rocket: string;
-  mission: {
-    type: string;
-    description: string;
-  };
   video: {
     title: string;
     domain: string;
     image: string;
     url: string;
+    videoId: string | null;
     type: string;
   } | null;
+  fallback: {
+    name: string;
+    url: string;
+  };
+  heading: {
+    name: string;
+    description: string;
+  };
+  timer: number;
+  mission: {
+    description: string;
+    type: string;
+    rocket: string;
+    launchWindow: string;
+  };
 };
