@@ -1,5 +1,7 @@
 export type HeadingProps = {
   className?: string;
-  title: string;
-  description?: string;
+  heading?: {
+    name: string;
+    description?: string;
+  };
 };

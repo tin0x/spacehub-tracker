@@ -1,6 +1,8 @@
 export type InfoTableProps = {
-  info: {
-    title: string;
-    text: string;
-  }[];
+  mission?: {
+    description: string;
+    type: string;
+    rocket: string;
+    launchWindow: string;
+  };
 };
