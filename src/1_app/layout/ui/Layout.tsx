@@ -9,7 +9,7 @@ const Layout: React.FC = () => {
   return (
     <div className="bg-background text-text-primary grid min-h-dvh grid-cols-1 grid-rows-[auto_1fr_auto]">
       <HeaderWidget slot={<NavigationWidget />} />
-      <main className="mx-auto w-full max-w-7xl px-4 py-6">
+      <main>
         <Outlet />
       </main>
       <FooterWidget />

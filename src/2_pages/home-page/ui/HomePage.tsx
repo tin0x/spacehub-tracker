@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '@shared/ui/container/container.tsx';
 import { useToggleTitle } from '@shared/hooks/ui/useToggleTitle.ts';
+import UpcomingLaunchWidget from '@widgets/upcoming-launch-widget/ui/UpcomingLaunchWidget.tsx';
 
 const HomePage: React.FC = () => {
   useToggleTitle('Home');
@@ -8,7 +9,9 @@ const HomePage: React.FC = () => {
   return (
     <section>
       <Container>
-        <div></div>
+        <div className="py-8">
+          <UpcomingLaunchWidget />
+        </div>
       </Container>
     </section>
   );
