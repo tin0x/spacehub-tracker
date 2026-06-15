@@ -14,7 +14,7 @@ const InfoTable: React.FC<InfoTableProps> = ({ mission }) => {
   return (
     <div className="grid grid-cols-2 gap-6">
       {infoTableItems.map((item) => (
-        <div className="flex flex-col gap-1 border-t border-t-white py-5 text-lg">
+        <div key={item.label} className="flex flex-col gap-1 border-t border-t-white py-5 text-lg">
           <span className="text-text-secondary">{item.label}</span>
           <p className="text-text-primary">{item.value}</p>
         </div>
