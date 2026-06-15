@@ -11,13 +11,13 @@ const UpcomingLaunchWidget: React.FC = () => {
   if (isEmpty) return; // Skeleton
 
   return (
-    <div className="flex flex-col gap-11">
+    <section className="flex flex-col gap-11">
       <Heading className="items-start" heading={{ name: 'Upcoming Launch' }} />
       <VideoPlayer video={video} fallback={fallback} />
       <Heading heading={heading} />
       <LaunchTimer timer={timer || 0} />
       <InfoTable mission={mission} />
-    </div>
+    </section>
   );
 };
 

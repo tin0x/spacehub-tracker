@@ -7,13 +7,9 @@ const HomePage: React.FC = () => {
   useToggleTitle('Home');
 
   return (
-    <section>
-      <Container>
-        <div className="py-8">
-          <UpcomingLaunchWidget />
-        </div>
-      </Container>
-    </section>
+    <Container className="py-8">
+      <UpcomingLaunchWidget />
+    </Container>
   );
 };
 

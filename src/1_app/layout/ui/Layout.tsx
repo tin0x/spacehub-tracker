@@ -1,4 +1,3 @@
-// src/1_app/layout/ui/Layout.tsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import HeaderWidget from '@widgets/header-widget/ui/HeaderWidget.tsx';
