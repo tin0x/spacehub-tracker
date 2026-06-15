@@ -1,11 +1,42 @@
-export type ArticleDTO = {
+export type ArticlePreviewArgs = {
+  limit: number;
+};
+
+export type ArticleFilteredPreviewArgs = {
+  limit: number;
+  offset: number;
+  ordering: string;
+  search?: string;
+};
+
+export type ArticlePreviewDTO = {
   id: number;
   title: string;
-  authors: [
-    {
-      name: string;
-    },
-  ];
+  image_url: string;
+  summary: string;
+  published_at: string;
+  updated_at: string;
+};
+
+export type ArticlePreview = {
+  id: number;
+  title: string;
+  imageURL: string;
+  description: string;
+  published: string;
+  updated: string;
+};
+
+export type CurrentArticleArgs = {
+  articleId: number;
+};
+
+export type CurrentArticleDTO = {
+  id: number;
+  title: string;
+  authors: {
+    name: string;
+  }[];
   url: string;
   image_url: string;
   news_site: string;
@@ -14,29 +45,26 @@ export type ArticleDTO = {
   updated_at: string;
 };
 
-export type Article = {
+export type CurrentArticle = {
   id: number;
   title: string;
   author: string;
-  siteName: string;
-  articleURL: string;
   imageURL: string;
   description: string;
   published: string;
   updated: string;
+  website: {
+    name: string;
+    url: string;
+  };
 };
 
-export type LimitedArticlesArgs = {
-  limit: number;
+// Ui
+
+export type ArticleItemProps = {
+  article: ArticlePreview;
 };
 
-export type ArticlesArgs = {
-  limit: number;
-  offset: number;
-  ordering: string;
-  search?: string;
-};
-
-export type CurrentArticleArgs = {
-  articleId: number;
+export type ArticleListProps = {
+  articles: ArticlePreview[];
 };

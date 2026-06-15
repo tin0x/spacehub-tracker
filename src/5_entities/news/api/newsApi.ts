@@ -1,16 +1,18 @@
 import { baseNewsApi } from '@shared/api/baseNewsApi.ts';
-import { mapArticle } from '@entities/news/lib/mappers.ts';
+import { mapArticlePreview, mapCurrentArticle } from '@entities/news/lib/mappers.ts';
 import type {
-  Article,
-  ArticleDTO,
-  ArticlesArgs,
+  ArticleFilteredPreviewArgs,
+  ArticlePreview,
+  ArticlePreviewArgs,
+  ArticlePreviewDTO,
+  CurrentArticle,
   CurrentArticleArgs,
-  LimitedArticlesArgs,
+  CurrentArticleDTO,
 } from '@entities/news/types.ts';
 
 const newsApi = baseNewsApi.injectEndpoints({
   endpoints: (build) => ({
-    getLimitedArticles: build.query<Article[], LimitedArticlesArgs>({
+    getLimitedArticles: build.query<ArticlePreview[], ArticlePreviewArgs>({
       query: ({ limit }) => ({
         url: '/articles',
         params: {
@@ -18,11 +20,11 @@ const newsApi = baseNewsApi.injectEndpoints({
           ordering: '-published_at',
         },
       }),
-      transformResponse: (response: { results: ArticleDTO[] }): Article[] => {
-        return response.results.map(mapArticle);
+      transformResponse: (response: { results: ArticlePreviewDTO[] }): ArticlePreview[] => {
+        return response.results.map(mapArticlePreview);
       },
     }),
-    getArticlesByNavigation: build.query<Article[], ArticlesArgs>({
+    getArticlesByNavigation: build.query<ArticlePreview[], ArticleFilteredPreviewArgs>({
       query: ({ limit, offset, ordering, search }) => ({
         url: '/articles',
         params: {
@@ -32,16 +34,16 @@ const newsApi = baseNewsApi.injectEndpoints({
           search,
         },
       }),
-      transformResponse: (response: { results: ArticleDTO[] }): Article[] => {
-        return response.results.map(mapArticle);
+      transformResponse: (response: { results: ArticlePreviewDTO[] }): ArticlePreview[] => {
+        return response.results.map(mapArticlePreview);
       },
     }),
-    getArticleById: build.query<Article, CurrentArticleArgs>({
+    getArticleById: build.query<CurrentArticle, CurrentArticleArgs>({
       query: ({ articleId }) => ({
         url: `/articles/${articleId}`,
       }),
-      transformResponse: (response: ArticleDTO) => {
-        return mapArticle(response);
+      transformResponse: (response: CurrentArticleDTO): CurrentArticle => {
+        return mapCurrentArticle(response);
       },
     }),
   }),
