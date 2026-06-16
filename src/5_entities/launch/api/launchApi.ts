@@ -36,16 +36,16 @@ const launchApi = baseSpaceDevsApi.injectEndpoints({
         return mapCurrentLaunch(response);
       },
     }),
-    getUpcomingLaunch: build.query<UpcomingLaunch, void>({
+    getUpcomingLaunch: build.query<UpcomingLaunch[], void>({
       query: () => ({
         url: '/launches/upcoming',
         params: {
-          limit: 1,
+          limit: 5,
           mode: 'detailed',
         },
       }),
-      transformResponse: (response: { results: UpcomingLaunchDTO[] }): UpcomingLaunch => {
-        return response.results.map(mapUpcomingLaunch)[0];
+      transformResponse: (response: { results: UpcomingLaunchDTO[] }): UpcomingLaunch[] => {
+        return response.results.map(mapUpcomingLaunch);
       },
     }),
   }),

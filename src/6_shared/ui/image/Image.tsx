@@ -4,14 +4,24 @@ import { stubs } from '@shared/ui/image/constants.ts';
 import { cn } from '@shared/lib/utils/cn.ts';
 
 const Image: React.FC<ImageProps> = ({ className, type, src, alt, isRadius, ...rest }) => {
-  const [currentImage, setCurrentImage] = useState(src || stubs[type]);
+  const [hasError, setHasError] = useState(false);
+  const currentImage = hasError || !src ? stubs[type] : src;
+
+  if (type === 'video') {
+    console.log(src);
+  }
 
   return (
     <img
-      className={cn('h-full, w-full object-cover', { 'rounded-custom-md': isRadius }, className)}
+      key={src}
+      className={cn('h-full w-full object-cover', { 'rounded-custom-md': isRadius }, className)}
       alt={alt}
       src={currentImage}
-      onError={() => currentImage !== stubs[type] && setCurrentImage(stubs[type])}
+      onError={() => {
+        if (currentImage !== stubs[type]) {
+          setHasError(true);
+        }
+      }}
       {...rest}
     />
   );
