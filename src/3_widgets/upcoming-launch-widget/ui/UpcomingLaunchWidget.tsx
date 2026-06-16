@@ -4,15 +4,18 @@ import VideoPlayer from '@shared/ui/video-player/VideoPlayer.tsx';
 import Heading from '@shared/ui/heading/Heading.tsx';
 import InfoTable from '@shared/ui/info-table/InfoTable.tsx';
 import LaunchTimer from '@features/launch-timer/ui/LaunchTimer.tsx';
+import UpcomingLaunchSkeleton from '@shared/ui/skeletons/upcoming-launch-skeleton/UpcomingLaunchSkeleton.tsx';
 
 const UpcomingLaunchWidget: React.FC = () => {
-  const { isEmpty, video, fallback, heading, timer, mission } = useGetInfoUpcomingLaunch();
+  const { isEmpty, video, fallback, heading, timer, mission, isLoading, isError } = useGetInfoUpcomingLaunch();
 
-  if (isEmpty) return; // Skeleton
+  if (isLoading) return <UpcomingLaunchSkeleton />;
+  if (isEmpty) return; // <QueryPlaceholder/>
+  if (isError) return; // <QueryPlaceholder/> + refetch
 
   return (
     <section className="flex flex-col gap-11">
-      <Heading className="items-start" heading={{ name: 'Upcoming Launch' }} />
+      <Heading className="items-start" customTitle="Upcoming Launch" />
       <VideoPlayer video={video} fallback={fallback} />
       <Heading heading={heading} />
       <LaunchTimer timer={timer || 0} />

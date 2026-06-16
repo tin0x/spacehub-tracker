@@ -11,3 +11,8 @@ body {
   font-family: 'SpaceGrotesk', 'Arial', sans-serif;
   background-color: var(--color-primary);
 }
+
+:root {
+  --skeleton-base: #293038;
+  --skeleton-highlight: #9b9696;
+}

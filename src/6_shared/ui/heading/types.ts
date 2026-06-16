@@ -4,4 +4,5 @@ export type HeadingProps = {
     name: string;
     description?: string;
   };
+  customTitle?: string;
 };
