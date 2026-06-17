@@ -8,7 +8,7 @@ const Layout: React.FC = () => {
   return (
     <div className="bg-background text-text-primary grid min-h-dvh grid-cols-1 grid-rows-[auto_1fr_auto]">
       <HeaderWidget slot={<NavigationWidget />} />
-      <main>
+      <main className="flex">
         <Outlet />
       </main>
       <FooterWidget />
