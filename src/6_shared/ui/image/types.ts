@@ -1,9 +1,9 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import React from 'react';
 
 export type ImageProps = {
   className?: string;
-  type: 'article' | 'video' | 'astronaut';
-  src: string | undefined;
-  alt: string | undefined;
+  type: 'article' | 'video' | 'astronaut' | 'launch';
+  src?: string;
+  alt?: string;
   isRadius?: boolean;
-} & ComponentPropsWithoutRef<'img'>;
+} & React.ImgHTMLAttributes<HTMLImageElement>;

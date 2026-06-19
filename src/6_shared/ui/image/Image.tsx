@@ -7,10 +7,6 @@ const Image: React.FC<ImageProps> = ({ className, type, src, alt, isRadius, ...r
   const [hasError, setHasError] = useState(false);
   const currentImage = hasError || !src ? stubs[type] : src;
 
-  if (type === 'video') {
-    console.log(src);
-  }
-
   return (
     <img
       key={src}

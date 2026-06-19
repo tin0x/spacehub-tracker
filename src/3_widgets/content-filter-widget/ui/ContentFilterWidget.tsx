@@ -17,23 +17,25 @@ const ContentFilterWidget: React.FC<ContentFilterWidgetProps> = ({ pageKey }) =>
   } = useInitContentFilterWidget(pageKey);
 
   return (
-    <form className="flex flex-col gap-10">
+    <section className="flex flex-col gap-10">
       <Heading className="items-start" customTitle="Sorting and Filtering data" />
-      <div className="flex items-center justify-between gap-4">
-        <Select
-          selectOptions={selectOptions}
-          selectParam={selectParam}
-          currentSelectLabel={currentSelectLabel}
-          onClick={handleChangeValue}
-        />
-        <RadioSwitch
-          radioParam={radioParam}
-          radioOptions={radioOptions}
-          searchRadioValue={searchRadioValue}
-          onChange={handleChangeValue}
-        />
-      </div>
-    </form>
+      <form>
+        <div className="flex items-center justify-between gap-4">
+          <Select
+            selectOptions={selectOptions}
+            selectParam={selectParam}
+            currentSelectLabel={currentSelectLabel}
+            onClick={handleChangeValue}
+          />
+          <RadioSwitch
+            radioParam={radioParam}
+            radioOptions={radioOptions}
+            searchRadioValue={searchRadioValue}
+            onChange={handleChangeValue}
+          />
+        </div>
+      </form>
+    </section>
   );
 };
 

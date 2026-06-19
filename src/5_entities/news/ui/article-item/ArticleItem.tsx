@@ -15,12 +15,12 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }) => {
         </h3>
         <p className="text-text-secondary line-clamp-3 text-sm sm:text-base">{article.description}</p>
       </div>
-      <div className="h-30 w-full shrink-0 overflow-hidden sm:h-37.5 sm:w-60 md:w-75">
+      <div className="rounded-custom-md h-30 w-full shrink-0 overflow-hidden sm:h-37.5 sm:w-60 md:w-75">
         <Image
           type="article"
           src={article.imageURL}
           alt={article.title}
-          className="transition-transform duration-300 group-hover:scale-102"
+          className="rounded-custom-md transition-transform duration-300 group-hover:scale-102"
         />
       </div>
     </Link>
