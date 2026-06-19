@@ -151,3 +151,16 @@ export type UpcomingLaunch = {
     launchWindow: string;
   };
 };
+
+// UI
+
+export type LaunchItemProps = {
+  launchId: string;
+  image: string;
+  name: string;
+  status: string;
+};
+
+export type LaunchListProps = {
+  launches: LaunchPreview[];
+};
