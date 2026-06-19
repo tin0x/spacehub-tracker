@@ -3,33 +3,33 @@ import ArrowDown from '@shared/assets/icons/arrow-down.svg?react';
 import { cn } from '@shared/lib/utils/cn.ts';
 import type { SelectProps } from '@shared/ui/select/types.ts';
 
-const Select: React.FC<SelectProps> = ({ options }) => {
-  const [selectedValue, setSelectedValue] = useState(options?.[0]);
+const Select: React.FC<SelectProps> = ({ selectOptions, selectParam, currentSelectLabel, onClick }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const displayedLabel = currentSelectLabel || selectOptions?.[0]?.label;
 
   return (
-    <div className="text-text-primary relative w-max text-sm">
+    <div className="text-text-primary relative w-max min-w-50 text-sm">
       <button
-        className="bg-surface rounded-custom-md flex gap-2 px-4 py-1.5"
+        className="bg-surface rounded-custom-md flex w-full cursor-pointer items-center justify-between gap-3 px-4 py-1.5 text-lg"
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        {selectedValue}
-        <ArrowDown className={cn('h-5 w-5', { isOpen: 'rotate-90 transition-transform duration-300 ease-out' })} />
+        {displayedLabel}
+        <ArrowDown className={cn('h-4 w-4 transition-transform duration-300 ease-in-out', { 'rotate-180': isOpen })} />
       </button>
       {isOpen && (
         <ul className="bg-surface rounded-custom-md absolute left-0 z-50 mt-2 w-full">
-          {options.map((option) => (
+          {selectOptions.map((option) => (
             <button
-              key={option}
-              className="block w-full px-4 py-1.5 transition-colors hover:bg-white/5 focus:bg-white/5 focus:outline-none"
+              key={option.value}
+              className="block w-full cursor-pointer px-4 py-1.5 text-lg transition-colors hover:bg-white/5 focus:bg-white/5 focus:outline-none"
               type="button"
               onClick={() => {
-                setSelectedValue(option);
                 setIsOpen(false);
+                onClick(selectParam, option.value);
               }}
             >
-              {option}
+              {option.label}
             </button>
           ))}
         </ul>

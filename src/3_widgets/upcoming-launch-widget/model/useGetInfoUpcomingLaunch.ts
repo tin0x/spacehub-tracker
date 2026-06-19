@@ -1,4 +1,5 @@
 import { useGetUpcomingLaunchQuery } from '@entities/launch/api/launchApi.ts';
+import { useNavigate } from 'react-router-dom';
 
 export const useGetInfoUpcomingLaunch = () => {
   const { futureLaunch, isLoading, isFetching, isError } = useGetUpcomingLaunchQuery(undefined, {
@@ -15,6 +16,9 @@ export const useGetInfoUpcomingLaunch = () => {
     },
   });
 
+  const navigate = useNavigate();
+  const handleGoHome = () => navigate('/');
+
   return {
     isEmpty: !futureLaunch && !isLoading && !isFetching,
     video: futureLaunch?.video,
@@ -24,5 +28,6 @@ export const useGetInfoUpcomingLaunch = () => {
     mission: futureLaunch?.mission,
     isLoading: isLoading || isFetching,
     isError,
+    handleGoHome,
   };
 };

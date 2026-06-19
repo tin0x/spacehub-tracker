@@ -1,8 +1,6 @@
 export type SpacecraftPreviewArgs = {
   limit: number;
   offset: number;
-  name: string;
-  inSpace?: string;
   status: number;
   ordering: string;
   search?: string;

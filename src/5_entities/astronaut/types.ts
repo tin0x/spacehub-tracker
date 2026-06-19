@@ -23,15 +23,8 @@ type TypesOrdering =
 export type AstronautPreviewArgs = {
   limit: number;
   offset: number;
-
-  // SORTING
   ordering: TypesOrdering;
-
-  // FILTERS
-  hasFlown?: boolean;
-  nationality?: string;
-
-  // SEARCH
+  inSpace?: boolean;
   search?: string;
 };
 

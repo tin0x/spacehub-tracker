@@ -12,14 +12,13 @@ import { mapAstronaut, mapAstronautPreview } from '@entities/astronaut/lib/mappe
 const astronautApi = baseSpaceDevsApi.injectEndpoints({
   endpoints: (build) => ({
     getAstronautsByNavigation: build.query<AstronautPreview[], AstronautPreviewArgs>({
-      query: ({ limit, offset, ordering, hasFlown, nationality, search }) => ({
+      query: ({ limit, offset, ordering, inSpace, search }) => ({
         url: '/astronauts',
         params: {
           limit,
           offset,
           ordering,
-          has_flown: hasFlown,
-          nationality,
+          in_space: inSpace,
           search,
           mode: 'list',
         },

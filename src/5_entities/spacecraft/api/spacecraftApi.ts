@@ -12,13 +12,11 @@ import { mapCurrentSpacecraft, mapSpacecraftPreview } from '@entities/spacecraft
 const spacecraftApi = baseSpaceDevsApi.injectEndpoints({
   endpoints: (build) => ({
     getSpacecraftByNavigation: build.query<SpacecraftPreview[], SpacecraftPreviewArgs>({
-      query: ({ limit, offset, name, inSpace, status, ordering, search }) => ({
+      query: ({ limit, offset, status, ordering, search }) => ({
         url: '/spacecraft',
         params: {
           limit,
           offset,
-          name,
-          in_space: inSpace,
           status,
           ordering,
           search,

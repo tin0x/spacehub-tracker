@@ -1,5 +1,5 @@
 import React from 'react';
-import { navigationData } from '@widgets/navigation-widget/constants.ts';
+import { navigationData } from '@widgets/navigation-widget/model/constants.ts';
 import { NavLink } from 'react-router-dom';
 import { cn } from '@shared/lib/utils/cn.ts';
 
