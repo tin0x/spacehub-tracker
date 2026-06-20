@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ArrowDown from '@shared/assets/icons/arrow-down.svg?react';
 import { cn } from '@shared/lib/utils/cn.ts';
 import type { SelectProps } from '@shared/ui/select/types.ts';
+import { useClickOutside } from '@shared/hooks/ui/useClickOutside.ts';
 
 const Select: React.FC<SelectProps> = ({ selectOptions, selectParam, currentSelectLabel, onClick }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const refSelect = useRef<HTMLDivElement | null>(null);
+  useClickOutside(refSelect, () => setIsOpen(false));
+
   const displayedLabel = currentSelectLabel || selectOptions?.[0]?.label;
 
   return (
-    <div className="text-text-primary relative w-max min-w-50 text-sm">
+    <div ref={refSelect} className="text-text-primary relative w-max min-w-50 text-sm">
       <button
         className="bg-surface rounded-custom-md flex w-full cursor-pointer items-center justify-between gap-3 px-4 py-1.5 text-lg"
         type="button"

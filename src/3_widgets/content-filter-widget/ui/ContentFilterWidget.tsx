@@ -4,6 +4,7 @@ import type { ContentFilterWidgetProps } from '@widgets/content-filter-widget/ty
 import RadioSwitch from '@shared/ui/radio-switch/RadioSwitch.tsx';
 import { useInitContentFilterWidget } from '@widgets/content-filter-widget/model/useInitContentFilterWidget.ts';
 import Heading from '@shared/ui/heading/Heading.tsx';
+import SearchByName from '@features/search-by-name/ui/SearchByName.tsx';
 
 const ContentFilterWidget: React.FC<ContentFilterWidgetProps> = ({ pageKey }) => {
   const {
@@ -19,7 +20,8 @@ const ContentFilterWidget: React.FC<ContentFilterWidgetProps> = ({ pageKey }) =>
   return (
     <section className="flex flex-col gap-10">
       <Heading className="items-start" customTitle="Sorting and Filtering data" />
-      <form>
+      <form className="flex flex-col gap-6">
+        <SearchByName />
         <div className="flex items-center justify-between gap-4">
           <Select
             selectOptions={selectOptions}

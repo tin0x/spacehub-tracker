@@ -6,12 +6,14 @@ export const useGetLaunches = () => {
 
   const ordering = searchParams.get('ordering') ?? '-last_updated';
   const status = searchParams.get('status') ? Number(searchParams.get('status')) : 1;
+  const search = searchParams.get('search') || '';
   const limit = searchParams.get('limit') ? Number(searchParams.get('limit')) : 10;
   const page = searchParams.get('page') ? Number(searchParams.get('page')) : 0;
 
   const { data, isLoading, isFetching, isError, refetch } = useGetLaunchesByNavigationQuery({
     ordering,
     status,
+    search,
     limit,
     offset: page,
   });
