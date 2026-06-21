@@ -18,6 +18,10 @@ export const useInitContentFilterWidget = (pageKey: PagesKeys) => {
 
   const handleChangeValue = (paramName: string, value: string) => {
     setSearchParams((prev) => {
+      if (paramName !== 'ordering') {
+        prev.set('page', '1');
+      }
+
       prev.set(paramName, value);
       return prev;
     });

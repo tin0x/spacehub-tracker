@@ -4,5 +4,5 @@ export type ButtonProps = {
   className?: string;
   typeColor: 'primary' | 'secondary';
   variant: 'text' | 'icon';
-  Icon?: React.ComponentType<SVGProps<SVGElement>>;
+  Icon?: React.ComponentType<SVGProps<SVGSVGElement>>;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;

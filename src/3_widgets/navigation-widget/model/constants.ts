@@ -7,7 +7,7 @@ export const navigationData: NavigationData = [
   },
   {
     title: 'Launches',
-    link: '/launches?ordering=-last_updated&status=1&mode=list&page=1&limit=10',
+    link: '/launches?ordering=-last_updated&status=1&mode=list&page=1',
   },
   {
     title: 'News',

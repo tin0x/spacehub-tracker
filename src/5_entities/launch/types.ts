@@ -1,5 +1,4 @@
 export type LaunchPreviewArgs = {
-  limit: number;
   offset: number;
   ordering: string;
   status: number;
@@ -17,11 +16,21 @@ export type LaunchPreviewDTO = {
   };
 };
 
+export type LaunchesPreviewDTO = {
+  count: number;
+  results: [];
+};
+
 export type LaunchPreview = {
   id: string;
   name: string;
   status: string;
   image: string;
+};
+
+export type LaunchesPreview = {
+  count: number;
+  launches: LaunchPreview[];
 };
 
 export type CurrentLaunchDTO = {

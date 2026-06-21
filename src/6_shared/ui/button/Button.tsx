@@ -13,8 +13,8 @@ const Button: React.FC<ButtonProps> = ({ className, typeColor = 'primary', varia
 
   return (
     <button className={cn(buttonCase[typeColor], baseStyles, className)} {...rest}>
-      {Icon && <Icon />}
-      {variant !== 'icon' && children}
+      {Icon && <Icon className="h-7 w-7 object-cover" />}
+      {variant !== 'icon' && <span className="tabular-nums">{children}</span>}
     </button>
   );
 };

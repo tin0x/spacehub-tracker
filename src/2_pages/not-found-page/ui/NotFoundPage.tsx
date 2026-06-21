@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '@shared/ui/container/container.tsx';
+import Container from '@shared/ui/container/Container.tsx';
 import { useToggleTitle } from '@shared/hooks/ui/useToggleTitle.ts';
 import QueryPlaceholder from '@shared/ui/query-placeholder/QueryPlaceholder.tsx';
 import { useNavigate } from 'react-router-dom';

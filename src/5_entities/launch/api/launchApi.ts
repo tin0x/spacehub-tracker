@@ -2,9 +2,9 @@ import { baseSpaceDevsApi } from '@shared/api/baseSpaceDevsApi.ts';
 import type {
   CurrentLaunch,
   CurrentLaunchDTO,
-  LaunchPreview,
+  LaunchesPreview,
+  LaunchesPreviewDTO,
   LaunchPreviewArgs,
-  LaunchPreviewDTO,
   UpcomingLaunch,
   UpcomingLaunchDTO,
 } from '@entities/launch/types.ts';
@@ -12,20 +12,21 @@ import { mapCurrentLaunch, mapLaunchPreview, mapUpcomingLaunch } from '@entities
 
 const launchApi = baseSpaceDevsApi.injectEndpoints({
   endpoints: (build) => ({
-    getLaunchesByNavigation: build.query<LaunchPreview[], LaunchPreviewArgs>({
-      query: ({ limit, offset, ordering, status, search }) => ({
+    getLaunchesByNavigation: build.query<LaunchesPreview, LaunchPreviewArgs>({
+      query: ({ offset, ordering, status, search }) => ({
         url: '/launches',
         params: {
-          limit,
-          offset,
           ordering,
           status,
           search,
+          offset,
+          limit: 10,
           mode: 'list',
         },
       }),
-      transformResponse: (response: { results: LaunchPreviewDTO[] }): LaunchPreview[] => {
-        return response.results.map(mapLaunchPreview);
+      transformResponse: (response: LaunchesPreviewDTO): LaunchesPreview => {
+        const launches = response.results.map(mapLaunchPreview);
+        return { count: response.count, launches };
       },
     }),
     getLaunchById: build.query({

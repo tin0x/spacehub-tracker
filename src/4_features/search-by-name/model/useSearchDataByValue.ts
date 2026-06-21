@@ -19,11 +19,22 @@ export const useSearchDataByValue = () => {
 
   useEffect(() => {
     setSearchParams((prev) => {
+      const currentSearchInUrl = prev.get('search') || '';
+
+      if (debouncedValue === currentSearchInUrl) {
+        return prev;
+      }
+
       if (!debouncedValue.trim()) {
         prev.delete('search');
       } else {
         prev.set('search', debouncedValue);
       }
+
+      if (prev.has('page') && prev.get('page') !== '1') {
+        prev.set('page', '1');
+      }
+
       return prev;
     });
   }, [debouncedValue, setSearchParams]);
