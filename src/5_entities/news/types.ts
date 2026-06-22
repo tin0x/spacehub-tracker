@@ -18,6 +18,11 @@ export type ArticlePreviewDTO = {
   updated_at: string;
 };
 
+export type ArticlePreviewsDTO = {
+  count: number;
+  results: ArticlePreviewDTO[];
+};
+
 export type ArticlePreview = {
   id: number;
   title: string;
@@ -25,6 +30,11 @@ export type ArticlePreview = {
   description: string;
   published: string;
   updated: string;
+};
+
+export type ArticlePreviews = {
+  count: number;
+  results: ArticlePreview[];
 };
 
 export type CurrentArticleArgs = {
@@ -66,5 +76,5 @@ export type ArticleItemProps = {
 };
 
 export type ArticleListProps = {
-  articles: ArticlePreview[];
+  articles: ArticlePreview[] | ArticlePreviews;
 };

@@ -19,7 +19,10 @@ const ContentFilterWidget: React.FC<ContentFilterWidgetProps> = ({ pageKey }) =>
 
   return (
     <section className="flex flex-col gap-10">
-      <Heading className="items-start" customTitle="Sorting and Filtering data" />
+      <Heading
+        className="items-start"
+        customTitle={`Sorting and Filtering ${pageKey.charAt(0).toUpperCase() + pageKey.slice(1)}`}
+      />
       <form className="flex flex-col gap-6">
         <SearchByName />
         <div className="flex items-center justify-between gap-4">

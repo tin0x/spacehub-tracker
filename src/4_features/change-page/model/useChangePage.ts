@@ -9,7 +9,8 @@ export const useChangePage = (totalCount: number, itemsPerPage: number) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentPage]);
 
-  const totalPages = Math.ceil(totalCount / itemsPerPage);
+  const maxCount = Math.min(totalCount, 1000);
+  const totalPages = Math.ceil(maxCount / itemsPerPage);
 
   const siblingCount = 2;
   const startPage = Math.max(1, currentPage - siblingCount);

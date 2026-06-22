@@ -10,7 +10,7 @@ const HomePage: React.FC = () => {
   return (
     <Container className="flex flex-col gap-20 py-8">
       <UpcomingLaunchWidget />
-      <ArticleWidget />
+      <ArticleWidget pageKey="home" />
     </Container>
   );
 };

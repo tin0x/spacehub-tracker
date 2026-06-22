@@ -5,6 +5,8 @@ import type {
   ArticlePreview,
   ArticlePreviewArgs,
   ArticlePreviewDTO,
+  ArticlePreviews,
+  ArticlePreviewsDTO,
   CurrentArticle,
   CurrentArticleArgs,
   CurrentArticleDTO,
@@ -24,7 +26,7 @@ const newsApi = baseNewsApi.injectEndpoints({
         return response.results.map(mapArticlePreview);
       },
     }),
-    getArticlesByNavigation: build.query<ArticlePreview[], ArticleFilteredPreviewArgs>({
+    getArticlesByNavigation: build.query<ArticlePreviews, ArticleFilteredPreviewArgs>({
       query: ({ limit, offset, ordering, search }) => ({
         url: '/articles',
         params: {
@@ -34,8 +36,9 @@ const newsApi = baseNewsApi.injectEndpoints({
           search,
         },
       }),
-      transformResponse: (response: { results: ArticlePreviewDTO[] }): ArticlePreview[] => {
-        return response.results.map(mapArticlePreview);
+      transformResponse: (response: ArticlePreviewsDTO): ArticlePreviews => {
+        const articles = response.results.map(mapArticlePreview);
+        return { count: response.count, results: articles };
       },
     }),
     getArticleById: build.query<CurrentArticle, CurrentArticleArgs>({

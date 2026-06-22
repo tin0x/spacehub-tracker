@@ -3,6 +3,7 @@ import Layout from '@app/layout/ui/Layout.tsx';
 import HomePage from '@pages/home-page/ui/HomePage.tsx';
 import NotFoundPage from '@pages/not-found-page/ui/NotFoundPage.tsx';
 import LaunchesPage from '@pages/launches-page/ui/LaunchesPage.tsx';
+import NewsPage from '@pages/news-page/ui/NewsPage.tsx';
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -21,6 +22,10 @@ const App = () => {
         {
           path: 'launches',
           element: <LaunchesPage />,
+        },
+        {
+          path: 'news',
+          element: <NewsPage />,
         },
       ],
     },
