@@ -15,6 +15,8 @@ const Pagination: React.FC<PaginationProps> = ({
   onNextPage,
   onTargetPage,
 }) => {
+  if (slicedPages?.length === 0) return null;
+
   return (
     <div className="mx-auto mt-5 flex w-max items-center gap-1">
       <Button

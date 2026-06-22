@@ -7,7 +7,10 @@ const UpcomingLaunchSkeleton: React.FC = () => {
       <SkeletonTheme baseColor={'var(--skeleton-base)'} highlightColor={'var(--skeleton-highlight)'}>
         <Skeleton className="max-w-1/5 py-4" />
         <Skeleton className="aspect-video w-full" />
-        <Skeleton className="mt-2 max-w-2/5 py-2" count={2} />
+        <div className="text-center">
+          <Skeleton className="mt-2 max-w-2/5 py-2" count={1.2} />
+        </div>
+
         <ul className="flex justify-between gap-4">
           <li className="flex flex-col justify-center gap-2">
             <Skeleton className="rounded-custom-md px-25 py-4" />
