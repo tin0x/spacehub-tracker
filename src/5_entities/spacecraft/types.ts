@@ -6,6 +6,11 @@ export type SpacecraftPreviewArgs = {
   search?: string;
 };
 
+export type SpacecraftPreviewsDTO = {
+  count: number;
+  results: SpacecraftPreviewDTO[];
+};
+
 export type SpacecraftPreviewDTO = {
   id: number;
   name: string;
@@ -18,6 +23,11 @@ export type SpacecraftPreviewDTO = {
       name: string;
     };
   };
+};
+
+export type SpacecraftPreviews = {
+  count: number;
+  results: SpacecraftPreview[];
 };
 
 export type SpacecraftPreview = {
@@ -90,4 +100,15 @@ export type CurrentSpacecraft = {
   status: string;
   description: string;
   inUse: boolean;
+};
+
+// UI
+
+export type SpacecraftItemProps = {
+  imageUrl: string;
+  imageAlt: string;
+} & Omit<SpacecraftPreview, 'image'>;
+
+export type SpacecraftListProps = {
+  spacecrafts: SpacecraftPreview[];
 };

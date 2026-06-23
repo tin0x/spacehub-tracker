@@ -8,10 +8,10 @@ import type {
 export const mapSpacecraftPreview = (dto: SpacecraftPreviewDTO): SpacecraftPreview => ({
   id: dto.id,
   name: dto.name,
-  agency: dto.spacecraft_config.agency.name,
+  agency: dto.spacecraft_config?.agency.name ?? 'unknown',
   image: {
-    name: dto.image.name,
-    url: dto.image.thumbnail_url,
+    name: dto.image?.name ?? dto.name,
+    url: dto.image?.thumbnail_url,
   },
 });
 

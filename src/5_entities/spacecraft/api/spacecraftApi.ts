@@ -3,15 +3,15 @@ import type {
   CurrentSpacecraft,
   CurrentSpacecraftArgs,
   CurrentSpacecraftDTO,
-  SpacecraftPreview,
   SpacecraftPreviewArgs,
-  SpacecraftPreviewDTO,
+  SpacecraftPreviews,
+  SpacecraftPreviewsDTO,
 } from '@entities/spacecraft/types.ts';
 import { mapCurrentSpacecraft, mapSpacecraftPreview } from '@entities/spacecraft/lib/mappers.ts';
 
 const spacecraftApi = baseSpaceDevsApi.injectEndpoints({
   endpoints: (build) => ({
-    getSpacecraftByNavigation: build.query<SpacecraftPreview[], SpacecraftPreviewArgs>({
+    getSpacecraftByNavigation: build.query<SpacecraftPreviews, SpacecraftPreviewArgs>({
       query: ({ limit, offset, status, ordering, search }) => ({
         url: '/spacecraft',
         params: {
@@ -24,8 +24,9 @@ const spacecraftApi = baseSpaceDevsApi.injectEndpoints({
           mode: 'normal',
         },
       }),
-      transformResponse: (response: { results: SpacecraftPreviewDTO[] }): SpacecraftPreview[] => {
-        return response.results.map(mapSpacecraftPreview);
+      transformResponse: (response: SpacecraftPreviewsDTO): SpacecraftPreviews => {
+        const spacecrafts = response.results.map(mapSpacecraftPreview);
+        return { count: response.count, results: spacecrafts };
       },
     }),
     getSpacecraftById: build.query<CurrentSpacecraft, CurrentSpacecraftArgs>({

@@ -11,11 +11,11 @@ export const navigationData: NavigationData = [
   },
   {
     title: 'News',
-    link: '/news',
+    link: '/news?ordering=-published_at&page=1',
   },
   {
     title: 'Spacecrafts',
-    link: '/spacecrafts',
+    link: '/spacecrafts?ordering=-flights_count&status=1&mode=normal&page=1',
   },
   {
     title: 'Astronauts',
