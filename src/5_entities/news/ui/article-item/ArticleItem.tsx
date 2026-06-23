@@ -2,8 +2,13 @@ import React from 'react';
 import type { ArticleItemProps } from '@entities/news/types.ts';
 import { Link } from 'react-router-dom';
 import Image from '@shared/ui/image/Image.tsx';
+import { formatDate } from '@shared/lib/utils/formatDate.ts';
 
 const ArticleItem: React.FC<ArticleItemProps> = ({ article }) => {
+  const { published, updated } = article;
+
+  const isUpdated = new Date(updated).getTime() - new Date(published).getTime() > 60 * 1000;
+
   return (
     <Link
       className="group flex flex-col-reverse justify-between gap-5 rounded-lg border-b px-4 py-5 transition-colors last:border-none hover:bg-white/5 sm:flex-row"
@@ -14,6 +19,10 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }) => {
           {article.title}
         </h3>
         <p className="text-text-secondary line-clamp-3 text-sm sm:text-base">{article.description}</p>
+        <div className="mt-auto flex gap-4">
+          <span>{`Published: ${formatDate(published)}`}</span>
+          {isUpdated && <span>{`Updated: ${formatDate(updated)}`}</span>}
+        </div>
       </div>
       <div className="rounded-custom-md h-30 w-full shrink-0 overflow-hidden sm:h-37.5 sm:w-60 md:w-75">
         <Image
