@@ -111,15 +111,15 @@ export const dataToFilter: Record<PagesKeys, PagesValues> = {
       },
     ],
     radios: {
-      radioParam: 'in_space',
+      radioParam: 'status_ids',
       options: [
         {
-          label: 'were in space',
-          value: 'true',
+          label: 'active astronauts',
+          value: '1',
         },
         {
-          label: 'never been to space',
-          value: 'false',
+          label: 'retired legends',
+          value: '2',
         },
       ],
     },

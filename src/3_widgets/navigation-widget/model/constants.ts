@@ -19,7 +19,7 @@ export const navigationData: NavigationData = [
   },
   {
     title: 'Astronauts',
-    link: '/stronauts',
+    link: '/astronauts?ordering=--time_in_space&status_ids=1&page=1',
   },
   {
     title: 'Agencies',

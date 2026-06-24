@@ -3,28 +3,29 @@ import type {
   Astronaut,
   AstronautArgs,
   AstronautDTO,
-  AstronautPreview,
   AstronautPreviewArgs,
-  AstronautPreviewDTO,
+  AstronautPreviews,
+  AstronautPreviewsDTO,
 } from '@entities/astronaut/types.ts';
 import { mapAstronaut, mapAstronautPreview } from '@entities/astronaut/lib/mappers.ts';
 
 const astronautApi = baseSpaceDevsApi.injectEndpoints({
   endpoints: (build) => ({
-    getAstronautsByNavigation: build.query<AstronautPreview[], AstronautPreviewArgs>({
-      query: ({ limit, offset, ordering, inSpace, search }) => ({
+    getAstronautsByNavigation: build.query<AstronautPreviews, AstronautPreviewArgs>({
+      query: ({ limit, offset, ordering, statusIds, search }) => ({
         url: '/astronauts',
         params: {
           limit,
           offset,
           ordering,
-          in_space: inSpace,
+          status_ids: statusIds,
           search,
           mode: 'list',
         },
       }),
-      transformResponse: (response: { results: AstronautPreviewDTO[] }): AstronautPreview[] => {
-        return response.results.map(mapAstronautPreview);
+      transformResponse: (response: AstronautPreviewsDTO): AstronautPreviews => {
+        const astronauts = response.results.map(mapAstronautPreview);
+        return { count: response.count, results: astronauts };
       },
     }),
     getAstronautById: build.query<Astronaut, AstronautArgs>({

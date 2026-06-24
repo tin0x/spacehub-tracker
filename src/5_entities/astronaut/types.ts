@@ -10,21 +10,18 @@ export type AstronautPreviewDTO = {
   };
 };
 
-type TypesOrdering =
-  | 'age'
-  | '-age'
-  | 'last_flight'
-  | '-last_flight'
-  | 'name'
-  | '-name'
-  | 'spacewalks_count'
-  | '-spacewalks_count';
+export type AstronautPreviewsDTO = {
+  count: number;
+  results: AstronautPreviewDTO[];
+};
+
+type TypesOrdering = '-time_in_space' | 'time_in_space' | '-flights_count' | 'flights_count';
 
 export type AstronautPreviewArgs = {
   limit: number;
   offset: number;
   ordering: TypesOrdering;
-  inSpace?: boolean;
+  statusIds: number;
   search?: string;
 };
 
@@ -38,6 +35,11 @@ export type AstronautPreview = {
   agency: {
     shortName: string;
   };
+};
+
+export type AstronautPreviews = {
+  count: number;
+  results: AstronautPreview[];
 };
 
 export type AstronautArgs = {
@@ -108,4 +110,18 @@ export type Astronaut = {
     name: string;
     description: string;
   }[];
+};
+
+// UI
+
+export type AstronautItemProps = {
+  id: number;
+  imageUrl: string;
+  imageAlt: string;
+  name: string;
+  agency: string;
+};
+
+export type AstronautListProps = {
+  astronauts: AstronautPreview[];
 };

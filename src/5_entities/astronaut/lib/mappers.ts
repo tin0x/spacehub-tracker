@@ -2,13 +2,13 @@ import type { Astronaut, AstronautDTO, AstronautPreview, AstronautPreviewDTO } f
 
 export const mapAstronautPreview = (dto: AstronautPreviewDTO): AstronautPreview => ({
   id: dto.id,
-  name: dto.name,
+  name: dto?.name || 'unknown',
   image: {
-    alt: dto.image.name,
-    url: dto.image.thumbnail_url,
+    alt: dto.image?.name ?? dto?.name ?? 'unknown',
+    url: dto.image?.thumbnail_url,
   },
   agency: {
-    shortName: dto.agency.abbrev,
+    shortName: dto?.agency?.abbrev ?? 'unknown',
   },
 });
 
