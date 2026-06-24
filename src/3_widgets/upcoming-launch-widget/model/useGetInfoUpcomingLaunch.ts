@@ -1,7 +1,10 @@
 import { useGetUpcomingLaunchQuery } from '@entities/launch/api/launchApi.ts';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const useGetInfoUpcomingLaunch = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const { futureLaunch, isLoading, isFetching, isError } = useGetUpcomingLaunchQuery(undefined, {
     selectFromResult: ({ data, isLoading, isFetching, isError }) => {
       const now = Date.now();
@@ -15,6 +18,12 @@ export const useGetInfoUpcomingLaunch = () => {
       };
     },
   });
+
+  useEffect(() => {
+    const hasTrashKeys = Array.from(searchParams.keys()).length > 0;
+
+    if (hasTrashKeys) setSearchParams(() => new URLSearchParams(), { replace: true });
+  }, [searchParams, setSearchParams]);
 
   const navigate = useNavigate();
   const handleGoHome = () => navigate('/');

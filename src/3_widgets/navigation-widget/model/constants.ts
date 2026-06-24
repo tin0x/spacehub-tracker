@@ -7,7 +7,7 @@ export const navigationData: NavigationData = [
   },
   {
     title: 'Launches',
-    link: '/launches?ordering=-last_updated&status=1&mode=list&page=1',
+    link: '/launches?ordering=-last_updated&status=1&page=1',
   },
   {
     title: 'News',
@@ -15,7 +15,7 @@ export const navigationData: NavigationData = [
   },
   {
     title: 'Spacecrafts',
-    link: '/spacecrafts?ordering=-flights_count&status=1&mode=normal&page=1',
+    link: '/spacecrafts?ordering=-flights_count&status=1&page=1',
   },
   {
     title: 'Astronauts',
