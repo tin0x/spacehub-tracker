@@ -2,8 +2,8 @@ export type AgencyPreviewArgs = {
   limit: number;
   offset: number;
   ordering: string;
+  typeId: number;
   search?: string;
-  typeId?: number;
 };
 
 export type AgencyPreviewDTO = {
@@ -18,6 +18,11 @@ export type AgencyPreviewDTO = {
   };
 };
 
+export type AgencyPreviewsDTO = {
+  count: number;
+  results: AgencyPreviewDTO[];
+};
+
 export type AgencyPreview = {
   id: number;
   name: string;
@@ -26,6 +31,11 @@ export type AgencyPreview = {
     name: string;
     url: string;
   };
+};
+
+export type AgencyPreviews = {
+  count: number;
+  results: AgencyPreview[];
 };
 
 export type CurrentAgencyArgs = {
@@ -90,4 +100,18 @@ export type CurrentAgency = {
       url: string | null;
     };
   }[];
+};
+
+// UI
+
+export type AgencyItemProps = {
+  id: number;
+  name: string;
+  country: string;
+  imageUrl: string;
+  imageAlt: string;
+};
+
+export type AgencyListProps = {
+  agencies: AgencyPreview[];
 };

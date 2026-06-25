@@ -23,6 +23,6 @@ export const navigationData: NavigationData = [
   },
   {
     title: 'Agencies',
-    link: '/agencies',
+    link: '/agencies?ordering=--total_launch_count&type__id=1&page=1',
   },
 ];

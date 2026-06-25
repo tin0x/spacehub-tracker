@@ -1,8 +1,8 @@
 import { baseSpaceDevsApi } from '@shared/api/baseSpaceDevsApi.ts';
 import type {
-  AgencyPreview,
   AgencyPreviewArgs,
-  AgencyPreviewDTO,
+  AgencyPreviews,
+  AgencyPreviewsDTO,
   CurrentAgency,
   CurrentAgencyArgs,
   CurrentAgencyDTO,
@@ -11,7 +11,7 @@ import { mapAgencyPreview, mapCurrentAgency } from '@entities/agency/lib/mappers
 
 const agencyApi = baseSpaceDevsApi.injectEndpoints({
   endpoints: (build) => ({
-    getAgenciesByNavigation: build.query<AgencyPreview[], AgencyPreviewArgs>({
+    getAgenciesByNavigation: build.query<AgencyPreviews, AgencyPreviewArgs>({
       query: ({ limit, offset, ordering, search, typeId }) => ({
         url: '/agencies',
         params: {
@@ -20,12 +20,12 @@ const agencyApi = baseSpaceDevsApi.injectEndpoints({
           ordering,
           search,
           type__id: typeId,
-          featured: 'true',
           mode: 'normal',
         },
       }),
-      transformResponse: (response: { results: AgencyPreviewDTO[] }): AgencyPreview[] => {
-        return response.results.map(mapAgencyPreview);
+      transformResponse: (response: AgencyPreviewsDTO): AgencyPreviews => {
+        const agencies = response.results.map(mapAgencyPreview);
+        return { count: response.count, results: agencies };
       },
     }),
     getAgencyById: build.query<CurrentAgency, CurrentAgencyArgs>({

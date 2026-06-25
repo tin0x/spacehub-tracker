@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { dataToFilter } from '@widgets/content-filter-widget/model/constants.ts';
 import type { PagesKeys } from '@widgets/content-filter-widget/types.ts';
+import React from 'react';
 
 export const useInitContentFilterWidget = (pageKey: PagesKeys) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,6 +16,10 @@ export const useInitContentFilterWidget = (pageKey: PagesKeys) => {
   const radioParam = dataToFilter[pageKey]?.radios?.radioParam;
 
   const currentSelectLabel = dataToFilter[pageKey].selectors.find((el) => el.value === searchSelectValue)?.label;
+
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
 
   const handleChangeValue = (paramName: string, value: string) => {
     setSearchParams((prev) => {
@@ -34,6 +39,7 @@ export const useInitContentFilterWidget = (pageKey: PagesKeys) => {
     selectParam,
     radioParam,
     currentSelectLabel,
+    handleSubmit,
     handleChangeValue,
   };
 };

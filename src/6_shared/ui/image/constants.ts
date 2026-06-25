@@ -3,6 +3,7 @@ import articleStub from '@shared/assets/images/article-stub.webp';
 import astronautStub from '@shared/assets/images/astonaut-stub.webp';
 import launchStub from '@shared/assets/images/launch-stub.webp';
 import spacecraftStub from '@shared/assets/images/spacecraft.webp';
+import agencyStub from '@shared/assets/images/agency-stub.webp';
 
 export const stubs = {
   article: articleStub,
@@ -10,4 +11,5 @@ export const stubs = {
   astronaut: astronautStub,
   launch: launchStub,
   spacecraft: spacecraftStub,
+  agency: agencyStub,
 };

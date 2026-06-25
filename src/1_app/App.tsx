@@ -6,6 +6,7 @@ import LaunchesPage from '@pages/launches-page/ui/LaunchesPage.tsx';
 import NewsPage from '@pages/news-page/ui/NewsPage.tsx';
 import SpacecraftsPage from '@pages/spacecrafts-page/ui/SpacecraftsPage.tsx';
 import AstronautsPage from '@pages/astronauts-page/ui/AstronautsPage.tsx';
+import AgenciesPage from '@pages/agencies-page/ui/AgenciesPage.tsx';
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -36,6 +37,10 @@ const App = () => {
         {
           path: 'astronauts',
           element: <AstronautsPage />,
+        },
+        {
+          path: 'agencies',
+          element: <AgenciesPage />,
         },
       ],
     },

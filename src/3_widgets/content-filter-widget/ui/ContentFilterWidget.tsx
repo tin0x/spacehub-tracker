@@ -14,6 +14,7 @@ const ContentFilterWidget: React.FC<ContentFilterWidgetProps> = ({ pageKey }) =>
     selectParam,
     radioParam,
     currentSelectLabel,
+    handleSubmit,
     handleChangeValue,
   } = useInitContentFilterWidget(pageKey);
 
@@ -23,7 +24,7 @@ const ContentFilterWidget: React.FC<ContentFilterWidgetProps> = ({ pageKey }) =>
         className="items-start"
         customTitle={`Sorting and Filtering ${pageKey.charAt(0).toUpperCase() + pageKey.slice(1)}`}
       />
-      <form className="flex flex-col gap-6">
+      <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
         <SearchByName />
         <div className="flex items-center justify-between gap-4">
           <Select

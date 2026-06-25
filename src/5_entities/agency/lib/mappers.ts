@@ -2,11 +2,11 @@ import type { AgencyPreview, AgencyPreviewDTO, CurrentAgency, CurrentAgencyDTO }
 
 export const mapAgencyPreview = (dto: AgencyPreviewDTO): AgencyPreview => ({
   id: dto.id,
-  name: dto.name,
+  name: dto?.name ?? 'unknown',
   country: dto.country?.[0]?.alpha_3_code ?? 'unknown',
   logo: {
-    name: dto.logo.name,
-    url: dto.logo.thumbnail_url,
+    name: dto?.logo?.name ?? dto?.name ?? 'unknown',
+    url: dto?.logo?.thumbnail_url,
   },
 });
 
@@ -20,8 +20,8 @@ export const mapCurrentAgency = (dto: CurrentAgencyDTO): CurrentAgency => ({
   launchers: dto.launchers,
   image: dto.image.image_url,
   logo: {
-    name: dto.logo.name,
-    url: dto.logo.thumbnail_url,
+    name: dto?.logo?.name ?? dto?.name ?? 'unknown',
+    url: dto?.logo?.thumbnail_url,
   },
   totalLaunchCount: dto.total_launch_count,
   successfulLaunches: dto.successful_launches,

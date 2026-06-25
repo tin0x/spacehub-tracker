@@ -163,6 +163,10 @@ export const dataToFilter: Record<PagesKeys, PagesValues> = {
           label: 'educational',
           value: '4',
         },
+        {
+          label: 'private',
+          value: '5',
+        },
       ],
     },
   },
