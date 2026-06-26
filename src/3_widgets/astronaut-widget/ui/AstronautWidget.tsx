@@ -21,7 +21,7 @@ const AstronautWidget: React.FC = () => {
   return (
     <section className="flex flex-col gap-10">
       <ContentFilterWidget pageKey="astronauts" />
-      <Heading className="mb-10 items-start" customTitle="List of Astronauts" />
+      <Heading className="mb-10 items-start" title="List of Astronauts" />
       {renderContent()}
       <ChangePage totalCount={totalCount} />
     </section>

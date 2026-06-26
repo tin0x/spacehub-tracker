@@ -7,6 +7,7 @@ import NewsPage from '@pages/news-page/ui/NewsPage.tsx';
 import SpacecraftsPage from '@pages/spacecrafts-page/ui/SpacecraftsPage.tsx';
 import AstronautsPage from '@pages/astronauts-page/ui/AstronautsPage.tsx';
 import AgenciesPage from '@pages/agencies-page/ui/AgenciesPage.tsx';
+import NewsDetailsPage from '@pages/news-details-page/ui/NewsDetailsPage.tsx';
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -29,6 +30,10 @@ const App = () => {
         {
           path: 'news',
           element: <NewsPage />,
+        },
+        {
+          path: 'news/:id',
+          element: <NewsDetailsPage />,
         },
         {
           path: 'spacecrafts',

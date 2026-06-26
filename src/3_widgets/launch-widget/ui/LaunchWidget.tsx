@@ -19,7 +19,7 @@ const LaunchWidget: React.FC = () => {
 
   return (
     <section>
-      <Heading className="mb-10 items-start" customTitle="List of Launches" />
+      <Heading className="mb-10 items-start" title="List of Launches" />
       {renderContent()}
       <ChangePage totalCount={totalCount} />
     </section>

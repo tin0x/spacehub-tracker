@@ -19,7 +19,7 @@ const SpacecraftWidget: React.FC = () => {
 
   return (
     <section>
-      <Heading className="mb-10 items-start" customTitle="List of Spacecrafts" />
+      <Heading className="mb-10 items-start" title="List of Spacecrafts" />
       {renderContent()}
       <ChangePage totalCount={totalCount} />
     </section>

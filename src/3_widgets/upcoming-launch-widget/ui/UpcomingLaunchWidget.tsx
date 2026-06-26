@@ -17,9 +17,9 @@ const UpcomingLaunchWidget: React.FC = () => {
 
   return (
     <section className="flex flex-col gap-11">
-      <Heading className="items-start" customTitle="Upcoming Launch" />
+      <Heading className="items-start" title="Upcoming Launch" />
       <VideoPlayer video={video} fallback={fallback} />
-      <Heading heading={heading} />
+      <Heading title={heading?.name} description={heading?.description} />
       <LaunchTimer timer={timer || 0} />
       <InfoTable mission={mission} />
     </section>

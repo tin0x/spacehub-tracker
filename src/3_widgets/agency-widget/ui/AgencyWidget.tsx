@@ -19,7 +19,7 @@ const AgencyWidget: React.FC = () => {
 
   return (
     <section>
-      <Heading className="mb-10 items-start" customTitle="List of Agencies" />
+      <Heading className="mb-10 items-start" title="List of Agencies" />
       {renderContent()}
       <ChangePage totalCount={totalCount} />
     </section>

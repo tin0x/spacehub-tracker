@@ -1,9 +1,9 @@
 import React from 'react';
-import type { ArticleDetailsItemProps } from '@entities/news/types.ts';
 import Image from '@shared/ui/image/Image.tsx';
 import { formatDate } from '@shared/lib/utils/formatDate.ts';
+import type { ArticleDetailsCardProps } from '@entities/news/types.ts';
 
-const ArticleDetailsCard: React.FC<ArticleDetailsItemProps> = ({
+const ArticleDetailsCard: React.FC<ArticleDetailsCardProps> = ({
   author,
   updated,
   published,

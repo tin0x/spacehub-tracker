@@ -42,7 +42,6 @@ export type CurrentArticleArgs = {
 };
 
 export type CurrentArticleDTO = {
-  id: number;
   title: string;
   authors: {
     name: string;
@@ -56,13 +55,12 @@ export type CurrentArticleDTO = {
 };
 
 export type CurrentArticle = {
-  id: number;
   title: string;
   author: string;
-  imageURL: string;
+  imageUrl: string;
   description: string;
   published: string;
-  updated: string;
+  updated?: string;
   website: {
     name: string;
     url: string;
@@ -78,3 +76,10 @@ export type ArticleItemProps = {
 export type ArticleListProps = {
   articles: ArticlePreview[] | ArticlePreviews;
 };
+
+export type ArticleDetailsCardProps = {
+  imageUrl: string;
+  imageAlt: string;
+  websiteName: string;
+  websiteUrl: string;
+} & Omit<CurrentArticle, 'id' | 'website' | 'title'>;

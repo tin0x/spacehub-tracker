@@ -12,7 +12,7 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }) => {
   return (
     <Link
       className="group flex flex-col-reverse justify-between gap-5 rounded-lg border-b px-4 py-5 transition-colors last:border-none hover:bg-white/5 sm:flex-row"
-      to={`/article/${article.id}`}
+      to={`/news/${article.id}`}
     >
       <div className="flex min-w-0 flex-1 flex-col">
         <h3 className="text-text-primary group-hover:text-accent mb-2 text-lg font-bold transition-colors">

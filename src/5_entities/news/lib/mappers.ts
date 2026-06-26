@@ -10,14 +10,13 @@ export const mapArticlePreview = (dto: ArticlePreviewDTO): ArticlePreview => ({
 });
 
 export const mapCurrentArticle = (dto: CurrentArticleDTO): CurrentArticle => ({
-  id: dto.id,
   title: dto.title,
   author: dto.authors?.[0]?.name ?? 'unknown',
   website: {
     name: dto.news_site ?? 'unknown',
     url: dto.url,
   },
-  imageURL: dto.image_url,
+  imageUrl: dto.image_url,
   description: dto.summary ?? 'unknown',
   published: dto.published_at,
   updated: dto.updated_at,

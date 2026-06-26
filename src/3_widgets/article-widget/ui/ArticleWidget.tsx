@@ -21,7 +21,7 @@ const ArticleWidget: React.FC<ArticleWidgetProps> = ({ pageKey }) => {
 
   return (
     <section>
-      <Heading className="mb-10 items-start" customTitle={customTitles[pageKey]} />
+      <Heading className="mb-10 items-start" title={customTitles[pageKey]} />
       {renderContent()}
       {pageKey === 'news' && <ChangePage totalCount={totalCount} />}
     </section>
