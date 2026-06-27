@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Image from '@shared/ui/image/Image.tsx';
-import type { LaunchItemProps } from '@entities/launch/types.ts';
+import type { LaunchPreviewItemProps } from '@entities/launch/types.ts';
 
-const LaunchItem: React.FC<LaunchItemProps> = ({ launchId, image, name, status }) => {
+const LaunchPreviewItem: React.FC<LaunchPreviewItemProps> = ({ launchId, image, name, status }) => {
   return (
     <Link
       className="group flex flex-col gap-4 rounded-lg p-4 transition-colors duration-200 ease-in-out hover:bg-white/5"
@@ -25,4 +25,4 @@ const LaunchItem: React.FC<LaunchItemProps> = ({ launchId, image, name, status }
   );
 };
 
-export default LaunchItem;
+export default LaunchPreviewItem;

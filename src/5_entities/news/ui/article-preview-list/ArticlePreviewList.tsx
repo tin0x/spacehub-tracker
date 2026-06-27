@@ -15,6 +15,7 @@ const ArticlePreviewList: React.FC<ArticleListProps> = ({ articles }) => {
             description={article.description}
             imageURL={article.imageURL}
             published={article.published}
+            updated={article.updated}
           />
         </li>
       ))}

@@ -163,13 +163,17 @@ export type UpcomingLaunch = {
 
 // UI
 
-export type LaunchItemProps = {
+export type LaunchPreviewItemProps = {
   launchId: string;
   image: string;
   name: string;
   status: string;
 };
 
-export type LaunchListProps = {
+export type LaunchPreviewListProps = {
   launches: LaunchPreview[];
+};
+
+export type LaunchDetailsCardProps = {
+  launch?: CurrentLaunch;
 };

@@ -1,6 +1,7 @@
 import { useGetArticleByIdQuery } from '@entities/news/api/newsApi.ts';
 import { useParams } from 'react-router-dom';
 import { skipToken } from '@reduxjs/toolkit/query';
+import { useToggleTitle } from '@shared/hooks/ui/useToggleTitle.ts';
 
 export const useGetDetailsArticle = () => {
   const { id } = useParams();
@@ -9,6 +10,8 @@ export const useGetDetailsArticle = () => {
   const { data, isLoading, isFetching, isError, refetch } = useGetArticleByIdQuery(
     articleId ? { articleId } : skipToken,
   );
+
+  useToggleTitle(data?.title || 'Article')
 
   return {
     data: data,

@@ -50,7 +50,7 @@ export const mapCurrentLaunch = (dto: CurrentLaunchDTO): CurrentLaunch => ({
     type: dto.launch_service_provider.type.name,
     country: dto.launch_service_provider?.country?.[0]?.name ?? 'unknown',
     admin: dto.launch_service_provider.administrator,
-    logo: dto.launch_service_provider.logo.thumbnail_url,
+    logo: dto?.launch_service_provider?.logo?.thumbnail_url,
   },
   video: mapVideo(dto),
 });

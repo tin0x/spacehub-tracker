@@ -69,9 +69,7 @@ export type CurrentArticle = {
 
 // Ui
 
-export type ArticleItemProps = {
-  article: ArticlePreview;
-};
+export type ArticleItemProps = Omit<ArticlePreview, 'website'>;
 
 export type ArticleListProps = {
   articles: ArticlePreview[] | ArticlePreviews;
