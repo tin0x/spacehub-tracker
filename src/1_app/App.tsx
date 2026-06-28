@@ -4,11 +4,12 @@ import HomePage from '@pages/home-page/ui/HomePage.tsx';
 import NotFoundPage from '@pages/not-found-page/ui/NotFoundPage.tsx';
 import LaunchesListPage from '@pages/launches-list-page/ui/LaunchesListPage.tsx';
 import NewsPage from '@pages/news-page/ui/NewsPage.tsx';
-import SpacecraftsPage from '@pages/spacecrafts-page/ui/SpacecraftsPage.tsx';
+import SpacecraftsListPage from '@pages/spacecrafts-list-page/ui/SpacecraftsListPage.tsx';
 import AstronautsPage from '@pages/astronauts-page/ui/AstronautsPage.tsx';
 import AgenciesPage from '@pages/agencies-page/ui/AgenciesPage.tsx';
 import NewsDetailsPage from '@pages/news-details-page/ui/NewsDetailsPage.tsx';
 import DetailsLaunchPage from '@pages/details-launch-page/ui/DetailsLaunchPage.tsx';
+import DetailsSpacecraftPage from '@pages/details-spacecraft-page/ui/DetailsSpacecraftPage.tsx';
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -42,7 +43,11 @@ const App = () => {
         },
         {
           path: 'spacecrafts',
-          element: <SpacecraftsPage />,
+          element: <SpacecraftsListPage />,
+        },
+        {
+          path: 'spacecrafts/:id',
+          element: <DetailsSpacecraftPage />,
         },
         {
           path: 'astronauts',

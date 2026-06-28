@@ -81,3 +81,12 @@ export type ArticleDetailsCardProps = {
   websiteName: string;
   websiteUrl: string;
 } & Omit<CurrentArticle, 'id' | 'website' | 'title'>;
+
+export type MissionInformationTableProps = {
+  mission?: {
+    description: string;
+    type: string;
+    rocket: string;
+    launchWindow: string;
+  };
+};

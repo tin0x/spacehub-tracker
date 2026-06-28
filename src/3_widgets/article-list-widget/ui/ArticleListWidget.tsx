@@ -4,11 +4,11 @@ import ArticlePreviewList from '@entities/news/ui/article-preview-list/ArticlePr
 import { useGetListArticles } from '@widgets/article-list-widget/model/useGetListArticles.ts';
 import ArticleSkeleton from '@shared/ui/skeletons/article-skeleton/ArticleSkeleton.tsx';
 import QueryPlaceholder from '@shared/ui/query-placeholder/QueryPlaceholder.tsx';
-import type { ArticleWidgetProps } from '@widgets/types.ts';
 import ChangePage from '@features/change-page/ui/ChangePage.tsx';
 import { customTitles } from '@widgets/article-list-widget/constants.ts';
+import type { ArticleListWidgetProps } from '@widgets/article-list-widget/types.ts';
 
-const ArticleListWidget: React.FC<ArticleWidgetProps> = ({ pageKey }) => {
+const ArticleListWidget: React.FC<ArticleListWidgetProps> = ({ pageKey }) => {
   const { data: articles, totalCount, isEmpty, isLoading, isError, handleGoHome } = useGetListArticles(pageKey);
 
   const renderContent = () => {

@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { convertPageToOffset } from '@shared/lib/utils/convertPageToOffset.ts';
 import { useEffect } from 'react';
 
-export const useGetSpacecrafts = () => {
+export const useGetSpacecraftsPreview = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // raw params

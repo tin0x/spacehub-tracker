@@ -41,7 +41,7 @@ export type SpacecraftPreview = {
 };
 
 export type CurrentSpacecraftArgs = {
-  spacecraftId: number;
+  spacecraftId: string;
 };
 
 export type CurrentSpacecraftDTO = {
@@ -65,7 +65,6 @@ export type CurrentSpacecraftDTO = {
     total_launch_count: number;
     successful_launches: number;
     failed_launches: number;
-    successful_landings: number;
   };
   flights_count: number;
   mission_ends_count: number;
@@ -77,11 +76,17 @@ export type CurrentSpacecraftDTO = {
 };
 
 export type CurrentSpacecraft = {
-  id: number;
-  name: string;
-  image: {
+  basicInfo: {
     name: string;
-    url: string;
+    flightsCount: number;
+    missionEndsCount: number;
+    status: string;
+    description: string;
+    inUse: string;
+    image: {
+      name: string;
+      url: string;
+    };
   };
   config: {
     name: string;
@@ -93,22 +98,20 @@ export type CurrentSpacecraft = {
     totalLaunchCount: number;
     successfulLaunchCount: number;
     failedLaunchCount: number;
-    successfulLandCount: number;
   };
-  flightsCount: number;
-  missionEndsCount: number;
-  status: string;
-  description: string;
-  inUse: boolean;
 };
 
 // UI
 
-export type SpacecraftItemProps = {
+export type SpacecraftPreviewItemProps = {
   imageUrl: string;
   imageAlt: string;
 } & Omit<SpacecraftPreview, 'image'>;
 
-export type SpacecraftListProps = {
+export type SpacecraftPreviewListProps = {
   spacecrafts: SpacecraftPreview[];
+};
+
+export type SpacecraftDetailsCardProps = {
+  spacecraft: CurrentSpacecraft;
 };

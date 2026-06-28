@@ -4,7 +4,7 @@ import DetailsArticleWidget from '@widgets/details-article-widget/ui/DetailsArti
 
 const NewsDetailsPage: React.FC = () => {
   return (
-    <Container className="flex flex-col gap-20 py-8">
+    <Container className="flex flex-col justify-center gap-20 py-8">
       <DetailsArticleWidget />
     </Container>
   );

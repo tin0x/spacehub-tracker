@@ -1,13 +1,13 @@
 import React from 'react';
-import type { SpacecraftListProps } from '@entities/spacecraft/types.ts';
-import SpacecraftItem from '@entities/spacecraft/ui/spacecraft-item/SpacecraftItem.tsx';
+import SpacecraftPreviewItem from '@entities/spacecraft/ui/spacecraft-preview-item/SpacecraftPreviewItem.tsx';
+import type { SpacecraftPreviewListProps } from '@entities/spacecraft/types.ts';
 
-const SpacecraftList: React.FC<SpacecraftListProps> = ({ spacecrafts }) => {
+const SpacecraftPreviewList: React.FC<SpacecraftPreviewListProps> = ({ spacecrafts }) => {
   return (
     <ul className="grid grid-cols-3 gap-5">
       {spacecrafts?.map((spacecraft) => (
         <li key={spacecraft.id}>
-          <SpacecraftItem
+          <SpacecraftPreviewItem
             id={spacecraft.id}
             name={spacecraft.name}
             agency={spacecraft.agency}
@@ -20,4 +20,4 @@ const SpacecraftList: React.FC<SpacecraftListProps> = ({ spacecrafts }) => {
   );
 };
 
-export default SpacecraftList;
+export default SpacecraftPreviewList;

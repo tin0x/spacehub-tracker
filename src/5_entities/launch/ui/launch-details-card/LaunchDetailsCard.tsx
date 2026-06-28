@@ -14,7 +14,7 @@ const LaunchDetailsCard: React.FC<LaunchDetailsCardProps> = ({ launch }) => {
   const currentStatus = launch.launchInfo.status.name;
 
   return (
-    <div className="group hover:border-accent/40 flex flex-col overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-all duration-300 hover:bg-white/10">
+    <div className="flex flex-col overflow-hidden rounded-xl border border-white/10 bg-white/5">
       <div className="aspect-video w-full shrink-0 overflow-hidden">
         <VideoPlayer video={video} />
       </div>
@@ -31,9 +31,7 @@ const LaunchDetailsCard: React.FC<LaunchDetailsCardProps> = ({ launch }) => {
             />
             <span className="text-base">{launchInfo.status.name}</span>
           </div>
-          <h3 className="text-text-primary group-hover:text-accent mb-2 truncate text-2xl font-bold transition-colors">
-            {launchInfo.name}
-          </h3>
+          <h3 className="text-text-primary mb-2 truncate text-2xl font-bold">{launchInfo.name}</h3>
 
           <div className="text-text-secondary space-y-1.5">
             <p className="flex items-center gap-2">
@@ -52,7 +50,7 @@ const LaunchDetailsCard: React.FC<LaunchDetailsCardProps> = ({ launch }) => {
           <div className="flex min-w-0 items-center gap-4">
             {provider.logo ? (
               <div className="h-10 w-10">
-                <Image type="agency" src={provider.logo} alt={provider.name} />
+                <Image className="object-contain" type="agency" src={provider.logo} alt={provider.name} />
               </div>
             ) : (
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white/10 text-xs font-bold">
