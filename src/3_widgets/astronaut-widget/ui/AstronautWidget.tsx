@@ -1,5 +1,5 @@
 import React from 'react';
-import AstronautList from '@entities/astronaut/ui/astronaut-list/AstronautList.tsx';
+import AstronautPreviewList from '@entities/astronaut/ui/astronaut-preview-list/AstronautPreviewList.tsx';
 import Heading from '@shared/ui/heading/Heading.tsx';
 import { useGetAstronauts } from '@widgets/astronaut-widget/model/useGetAstronauts.ts';
 import QueryPlaceholder from '@shared/ui/query-placeholder/QueryPlaceholder.tsx';
@@ -15,7 +15,7 @@ const AstronautWidget: React.FC = () => {
     if (isEmpty) return <QueryPlaceholder type="empty" />;
     if (isError) return <QueryPlaceholder type="error" onClick={refetch} />;
 
-    return <AstronautList astronauts={data} />;
+    return <AstronautPreviewList astronauts={data} />;
   };
 
   return (

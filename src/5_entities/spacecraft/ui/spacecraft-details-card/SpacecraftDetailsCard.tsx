@@ -7,8 +7,6 @@ import { formatDate } from '@shared/lib/utils/formatDate.ts';
 const SpacecraftDetailsCard: React.FC<SpacecraftDetailsCardProps> = ({ spacecraft }) => {
   const { basicInfo, config } = spacecraft;
 
-  console.log(spacecraft);
-
   const configDescription = [
     { label: 'Status', value: basicInfo.status },
     { label: 'In use', value: basicInfo.inUse },

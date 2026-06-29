@@ -20,8 +20,8 @@ const ArticleDetailsCard: React.FC<ArticleDetailsCardProps> = ({
       <div className="flex items-center gap-4">
         <span className="text-text-primary text-lg font-bold">Author: {author}</span>
         <div className="flex gap-6">
-          <time className="italic">{`Published: ${formatDate(published)}`}</time>
-          {isUpdated && <time className="italic">{`Updated: ${formatDate(updated)}`}</time>}
+          <time className="italic">{`Published: ${formatDate(published, true)}`}</time>
+          {isUpdated && <time className="italic">{`Updated: ${formatDate(updated, true)}`}</time>}
         </div>
       </div>
       <div className="aspect-video w-full overflow-hidden">

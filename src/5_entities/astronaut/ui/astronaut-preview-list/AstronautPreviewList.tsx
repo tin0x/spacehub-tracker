@@ -1,13 +1,13 @@
 import React from 'react';
-import type { AstronautListProps } from '@entities/astronaut/types.ts';
-import AstronautItem from '@entities/astronaut/ui/astronaut-item/AstronautItem.tsx';
+import type { AstronautPreviewListProps } from '@entities/astronaut/types.ts';
+import AstronautPreviewItem from '@entities/astronaut/ui/astronaut-preview-item/AstronautPreviewItem.tsx';
 
-const AstronautList: React.FC<AstronautListProps> = ({ astronauts }) => {
+const AstronautPreviewList: React.FC<AstronautPreviewListProps> = ({ astronauts }) => {
   return (
     <ul className="grid grid-cols-3 gap-5">
       {astronauts?.map((astronaut) => (
         <li key={astronaut.id}>
-          <AstronautItem
+          <AstronautPreviewItem
             id={astronaut.id}
             name={astronaut.name}
             agency={astronaut.agency.shortName}
@@ -20,4 +20,4 @@ const AstronautList: React.FC<AstronautListProps> = ({ astronauts }) => {
   );
 };
 
-export default AstronautList;
+export default AstronautPreviewList;

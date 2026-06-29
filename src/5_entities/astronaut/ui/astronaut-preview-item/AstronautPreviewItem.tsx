@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Image from '@shared/ui/image/Image.tsx';
-import type { AstronautItemProps } from '@entities/astronaut/types.ts';
+import type { AstronautPreviewItemProps } from '@entities/astronaut/types.ts';
 
-const AstronautItem: React.FC<AstronautItemProps> = ({ id, imageUrl, imageAlt, name, agency }) => {
+const AstronautPreviewItem: React.FC<AstronautPreviewItemProps> = ({ id, imageUrl, imageAlt, name, agency }) => {
   return (
     <Link
       className="group flex flex-col gap-4 rounded-lg p-4 transition-colors duration-200 ease-in-out hover:bg-white/5"
-      to={`/spacecraft/${id}`}
+      to={`/astronauts/${id}`}
     >
       <div className="rounded-custom-md h-70 overflow-hidden">
         <Image
@@ -25,4 +25,4 @@ const AstronautItem: React.FC<AstronautItemProps> = ({ id, imageUrl, imageAlt, n
   );
 };
 
-export default AstronautItem;
+export default AstronautPreviewItem;

@@ -83,38 +83,33 @@ export type AstronautDTO = {
 };
 
 export type Astronaut = {
-  id: number;
-  name: string;
-  status: string;
-  image: {
-    alt: string;
-    url: string;
+  basicInfo: {
+    name: string;
+    status: string;
+    age?: number;
+    bio: string;
+    nationality: string;
+    dateBirth: string;
+    dateDeath?: string;
+    image: {
+      alt: string;
+      url: string;
+    };
   };
-  agency: {
-    id: number;
-    name: string;
-    type: string;
+  careerInfo: {
+    lastFlight: string;
+    firstFlight: string;
+    agency: {
+      id: number;
+      name: string;
+      type: string;
+    };
   };
-  age: number;
-  dateBirth: string;
-  dateDeath?: string;
-  nationality: string[];
-  bio: string;
-  lastFlight: string;
-  firstFlight: string;
-  socialLinks: {
-    name: string;
-    url: string;
-  }[];
-  flights: {
-    name: string;
-    description: string;
-  }[];
 };
 
 // UI
 
-export type AstronautItemProps = {
+export type AstronautPreviewItemProps = {
   id: number;
   imageUrl: string;
   imageAlt: string;
@@ -122,6 +117,10 @@ export type AstronautItemProps = {
   agency: string;
 };
 
-export type AstronautListProps = {
+export type AstronautPreviewListProps = {
   astronauts: AstronautPreview[];
+};
+
+export type AstronautDetailsCardProps = {
+  astronaut: Astronaut;
 };
