@@ -11,6 +11,7 @@ import NewsDetailsPage from '@pages/news-details-page/ui/NewsDetailsPage.tsx';
 import DetailsLaunchPage from '@pages/details-launch-page/ui/DetailsLaunchPage.tsx';
 import DetailsSpacecraftPage from '@pages/details-spacecraft-page/ui/DetailsSpacecraftPage.tsx';
 import DetailsAstronautPage from '@pages/details-astronaut-page/ui/DetailsAstronautPage.tsx';
+import DetailsAgencyPage from '@pages/details-agency-page/ui/DetailsAgencyPage.tsx';
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -61,6 +62,10 @@ const App = () => {
         {
           path: 'agencies',
           element: <AgenciesPage />,
+        },
+        {
+          path: 'agencies/:id',
+          element: <DetailsAgencyPage />,
         },
       ],
     },

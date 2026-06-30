@@ -11,27 +11,19 @@ export const mapAgencyPreview = (dto: AgencyPreviewDTO): AgencyPreview => ({
 });
 
 export const mapCurrentAgency = (dto: CurrentAgencyDTO): CurrentAgency => ({
-  id: dto.id,
   name: dto.name,
   type: dto.type.name,
-  country: dto.country?.[0]?.alpha_3_code ?? 'unknown',
+  country: dto.country?.[0]?.name ?? 'unknown',
   description: dto.description,
-  admin: dto.administrator,
-  launchers: dto.launchers,
-  image: dto.image.image_url,
+  admin: dto?.administrator ?? 'unknown',
+  launchers: dto?.launchers || 'unknown',
+  foundingYear: dto?.founding_year.toString() ?? 'unknown',
+  image: dto.image?.image_url,
   logo: {
     name: dto?.logo?.name ?? dto?.name ?? 'unknown',
-    url: dto?.logo?.thumbnail_url,
+    url: dto?.logo?.image_url,
   },
-  totalLaunchCount: dto.total_launch_count,
-  successfulLaunches: dto.successful_launches,
-  failedLaunches: dto.failed_launches,
-  socialLinks: dto.social_media_links.map((l) => ({
-    name: l.social_media.name,
-    url: l.social_media.url,
-    logo: {
-      name: l.social_media.logo?.name ?? null,
-      url: l.social_media.logo?.name ?? null,
-    },
-  })),
+  totalLaunchCount: dto.total_launch_count ?? 0,
+  successfulLaunches: dto.successful_launches ?? 0,
+  failedLaunches: dto.failed_launches ?? 0,
 });

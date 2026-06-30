@@ -9,8 +9,6 @@ export const useGetDetailsAstronaut = () => {
     id ? { astronautId: Number(id) } : skipToken,
   );
 
-  console.log(data);
-
   useToggleTitle(data?.basicInfo?.name ?? 'Astronaut');
 
   return {

@@ -1,13 +1,13 @@
 import React from 'react';
-import type { AgencyListProps } from '@entities/agency/types.ts';
-import AgencyItem from '@entities/agency/ui/agency-item/AgencyItem.tsx';
+import type { AgencyPreviewListProps } from '@entities/agency/types.ts';
+import AgencyPreviewItem from '@entities/agency/ui/agency-preview-item/AgencyPreviewItem.tsx';
 
-const AgencyList: React.FC<AgencyListProps> = ({ agencies }) => {
+const AgencyPreviewList: React.FC<AgencyPreviewListProps> = ({ agencies }) => {
   return (
     <ul className="grid grid-cols-3 gap-5">
       {agencies?.map((agency) => (
         <li key={agency.id}>
-          <AgencyItem
+          <AgencyPreviewItem
             id={agency.id}
             country={agency.country}
             name={agency.name}
@@ -20,4 +20,4 @@ const AgencyList: React.FC<AgencyListProps> = ({ agencies }) => {
   );
 };
 
-export default AgencyList;
+export default AgencyPreviewList;

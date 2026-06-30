@@ -3,7 +3,7 @@ import Heading from '@shared/ui/heading/Heading.tsx';
 import { useGetAgencies } from '@widgets/agency-widget/model/useGetAgencies.ts';
 import ChangePage from '@features/change-page/ui/ChangePage.tsx';
 import QueryPlaceholder from '@shared/ui/query-placeholder/QueryPlaceholder.tsx';
-import AgencyList from '@entities/agency/ui/agency-list/AgencyList.tsx';
+import AgencyPreviewList from '@entities/agency/ui/agency-preview-list/AgencyPreviewList.tsx';
 import AgencySkeleton from '@shared/ui/skeletons/agency-skeleton/AgencySkeleton.tsx';
 
 const AgencyWidget: React.FC = () => {
@@ -14,7 +14,7 @@ const AgencyWidget: React.FC = () => {
     if (isEmpty) return <QueryPlaceholder type="empty" />;
     if (isError) return <QueryPlaceholder type="error" onClick={refetch} />;
 
-    return <AgencyList agencies={data} />;
+    return <AgencyPreviewList agencies={data} />;
   };
 
   return (

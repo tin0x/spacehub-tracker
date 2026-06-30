@@ -31,7 +31,10 @@ export const mapCurrentSpacecraft = (dto: CurrentSpacecraftDTO): CurrentSpacecra
   config: {
     name: dto.spacecraft_config?.name ?? 'unknown',
     type: dto.spacecraft_config?.type?.name ?? 'unknown',
-    agency: dto.spacecraft_config?.agency?.name ?? 'unknown',
+    agency: {
+      id: dto.spacecraft_config?.agency?.id,
+      name: dto.spacecraft_config?.agency?.name ?? 'unknown',
+    },
     capability: dto.spacecraft_config?.capability ?? 'unknown',
     crewCapacity: dto.spacecraft_config?.crew_capacity ?? 0,
     maidenFlight: dto.spacecraft_config?.maiden_flight ?? 'unknown',

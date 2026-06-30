@@ -57,6 +57,7 @@ export type CurrentSpacecraftDTO = {
       name: string;
     };
     agency: {
+      id: number;
       name: string;
     };
     capability: string;
@@ -91,7 +92,10 @@ export type CurrentSpacecraft = {
   config: {
     name: string;
     type: string;
-    agency: string;
+    agency: {
+      id: number;
+      name: string;
+    };
     capability: string;
     crewCapacity: number;
     maidenFlight: string;

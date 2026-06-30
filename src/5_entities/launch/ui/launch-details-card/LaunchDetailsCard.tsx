@@ -5,6 +5,7 @@ import Image from '@shared/ui/image/Image.tsx';
 import RocketIcon from '@shared/assets/icons/rocket.svg?react';
 import StationIcon from '@shared/assets/icons/space-station.svg?react';
 import { cn } from '@shared/lib/utils/cn.ts';
+import { Link } from 'react-router-dom';
 
 const LaunchDetailsCard: React.FC<LaunchDetailsCardProps> = ({ launch }) => {
   if (!launch) return;
@@ -47,24 +48,22 @@ const LaunchDetailsCard: React.FC<LaunchDetailsCardProps> = ({ launch }) => {
         </div>
 
         <div className="mt-5 flex items-center justify-between border-t border-white/5 pt-4">
-          <div className="flex min-w-0 items-center gap-4">
-            {provider.logo ? (
+          <Link
+            className="rounded-lg p-2 transition-colors duration-200 ease-in-out hover:bg-white/5"
+            to={`/agencies/${provider.id}`}
+          >
+            <div className="flex min-w-0 items-center gap-4">
               <div className="h-10 w-10">
                 <Image className="object-contain" type="agency" src={provider.logo} alt={provider.name} />
               </div>
-            ) : (
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white/10 text-xs font-bold">
-                {provider.name.substring(0, 2)}
+              <div className="min-w-0">
+                <p className="text-text-primary truncate font-semibold">{provider.name}</p>
+                <p className="text-text-secondary">
+                  {provider.type} • {provider.country}
+                </p>
               </div>
-            )}
-            <div className="min-w-0">
-              <p className="text-text-primary truncate font-semibold">{provider.name}</p>
-              <p className="text-text-secondary">
-                {provider.type} • {provider.country}
-              </p>
             </div>
-          </div>
-
+          </Link>
           <span className="text-text-secondary rounded bg-white/10 px-2 py-0.5 font-medium">{provider.admin}</span>
         </div>
       </div>

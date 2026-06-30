@@ -13,7 +13,7 @@ const SpacecraftDetailsCard: React.FC<SpacecraftDetailsCardProps> = ({ spacecraf
     { label: 'Flights count', value: basicInfo.flightsCount.toString() },
     { label: 'Number of mission completions', value: basicInfo.missionEndsCount.toString() },
     { label: 'Type', value: config.type },
-    { label: 'Agency', value: config.agency },
+    { label: 'Agency', value: config.agency.name, link: `/agencies/${config.agency.id}` },
     { label: 'Capability', value: config.capability },
     { label: 'Crew capacity', value: config.crewCapacity.toString() },
     { label: 'Maiden flight', value: formatDate(config.maidenFlight) },

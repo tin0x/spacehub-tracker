@@ -13,7 +13,7 @@ const AstronautDetailsCard: React.FC<AstronautDetailsCardProps> = ({ astronaut }
     { label: 'Date Birth', value: formatDate(basicInfo.dateBirth) },
     { label: 'Date Death', value: basicInfo?.dateDeath ? formatDate(basicInfo.dateDeath) : 'N/A' },
     { label: 'Nationality', value: basicInfo.nationality },
-    { label: 'Agency', value: careerInfo.agency.name },
+    { label: 'Agency', value: careerInfo.agency.name, link: `/agencies/${careerInfo.agency.id}` },
     { label: 'First flight', value: formatDate(careerInfo.firstFlight, true) },
     { label: 'Last flight', value: formatDate(careerInfo.lastFlight, true) },
   ];

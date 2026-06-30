@@ -10,8 +10,6 @@ export const useGetDetailsAgency = () => {
     id ? { agencyId: Number(id) } : skipToken,
   );
 
-  console.log(data);
-
   useToggleTitle(data?.name || 'Agency');
 
   return {

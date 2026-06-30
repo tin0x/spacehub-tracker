@@ -43,23 +43,23 @@ export type CurrentAgencyArgs = {
 };
 
 export type CurrentAgencyDTO = {
-  id: number;
   name: string;
   type: {
     name: string;
   };
   country: {
-    alpha_3_code: string;
+    name: string;
   }[];
   description: string;
   administrator: string;
   launchers: string;
+  founding_year: number;
   image: {
     image_url: string;
   };
   logo: {
     name: string;
-    thumbnail_url: string;
+    image_url: string;
   };
   total_launch_count: number;
   successful_launches: number;
@@ -77,13 +77,13 @@ export type CurrentAgencyDTO = {
 };
 
 export type CurrentAgency = {
-  id: number;
   name: string;
   type: string;
   country: string;
   description: string;
   admin: string;
   launchers: string;
+  foundingYear: string;
   image: string;
   logo: {
     name: string;
@@ -92,19 +92,11 @@ export type CurrentAgency = {
   totalLaunchCount: number;
   successfulLaunches: number;
   failedLaunches: number;
-  socialLinks: {
-    name: string;
-    url: string;
-    logo: {
-      name: string | null;
-      url: string | null;
-    };
-  }[];
 };
 
 // UI
 
-export type AgencyItemProps = {
+export type AgencyPreviewItemProps = {
   id: number;
   name: string;
   country: string;
@@ -112,6 +104,10 @@ export type AgencyItemProps = {
   imageAlt: string;
 };
 
-export type AgencyListProps = {
+export type AgencyPreviewListProps = {
   agencies: AgencyPreview[];
+};
+
+export type AgencyDetailsCardProps = {
+  agency: CurrentAgency;
 };
