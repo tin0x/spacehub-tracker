@@ -4,7 +4,7 @@ import LaunchPreviewItem from '@entities/launch/ui/launch-preview-item/LaunchPre
 
 const LaunchPreviewList: React.FC<LaunchPreviewListProps> = ({ launches }) => {
   return (
-    <ul className="grid grid-cols-3 gap-5">
+    <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {launches.map((launch) => (
         <li key={launch.id}>
           <LaunchPreviewItem launchId={launch.id} image={launch.image} name={launch.name} status={launch.status} />

@@ -17,7 +17,7 @@ export const mapCurrentAgency = (dto: CurrentAgencyDTO): CurrentAgency => ({
   description: dto.description,
   admin: dto?.administrator ?? 'unknown',
   launchers: dto?.launchers || 'unknown',
-  foundingYear: dto?.founding_year.toString() ?? 'unknown',
+  foundingYear: dto?.founding_year ? dto?.founding_year.toString() : 'unknown',
   image: dto.image?.image_url,
   logo: {
     name: dto?.logo?.name ?? dto?.name ?? 'unknown',

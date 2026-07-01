@@ -5,7 +5,7 @@ const RadioSwitch: React.FC<RadioSwitchProps> = ({ radioParam, searchRadioValue,
   if (!radioOptions || radioOptions.length === 0) return;
 
   return (
-    <ul className="flex gap-4">
+    <ul className="flex w-full flex-col gap-4 md:w-auto md:flex-row">
       {radioOptions.map((option) => {
         return (
           <li key={option.value}>
@@ -19,7 +19,7 @@ const RadioSwitch: React.FC<RadioSwitchProps> = ({ radioParam, searchRadioValue,
               onChange={() => onChange(radioParam || '', option.value)}
             />
             <label
-              className="rounded-custom-md border-text-secondary text-text-secondary hover:bg-surface hover:border-text-primary hover:text-text-primary peer-checked:bg-surface peer-checked:text-text-primary peer-checked:border-text-primary block cursor-pointer border px-4 py-2 text-lg font-medium transition-all duration-200 select-none"
+              className="rounded-custom-md border-text-secondary text-text-secondary hover:bg-surface hover:border-text-primary hover:text-text-primary peer-checked:bg-surface peer-checked:text-text-primary peer-checked:border-text-primary block cursor-pointer border px-4 py-2 text-lg font-medium text-nowrap transition-all duration-200 select-none"
               htmlFor={option.label}
             >
               {option.label}

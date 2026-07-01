@@ -26,7 +26,7 @@ const ContentFilterWidget: React.FC<ContentFilterWidgetProps> = ({ pageKey }) =>
       />
       <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
         <SearchByName />
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-col items-center justify-between gap-4 lg:flex-row">
           <Select
             selectOptions={selectOptions}
             selectParam={selectParam}

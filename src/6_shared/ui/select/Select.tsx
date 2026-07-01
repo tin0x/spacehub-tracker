@@ -12,7 +12,7 @@ const Select: React.FC<SelectProps> = ({ selectOptions, selectParam, currentSele
   const displayedLabel = currentSelectLabel || selectOptions?.[0]?.label;
 
   return (
-    <div ref={refSelect} className="text-text-primary relative w-max min-w-50 text-sm">
+    <div ref={refSelect} className="text-text-primary relative w-full min-w-50 text-sm lg:w-max">
       <button
         className="bg-surface rounded-custom-md flex w-full cursor-pointer items-center justify-between gap-3 px-4 py-1.5 text-lg"
         type="button"
