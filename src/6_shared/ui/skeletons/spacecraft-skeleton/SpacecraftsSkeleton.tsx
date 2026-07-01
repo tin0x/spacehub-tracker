@@ -4,7 +4,7 @@ import type { SpaceCraftSkeletonProps } from '@shared/ui/skeletons/spacecraft-sk
 
 const SpacecraftsSkeleton: React.FC<SpaceCraftSkeletonProps> = ({ count = 9 }) => {
   return (
-    <ul className="grid grid-cols-3 gap-5">
+    <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <SkeletonTheme baseColor={'var(--skeleton-base)'} highlightColor={'var(--skeleton-highlight)'}>
         {Array.from({ length: count }).map((_, i) => (
           <li className="flex flex-col gap-2 p-4" key={i}>
