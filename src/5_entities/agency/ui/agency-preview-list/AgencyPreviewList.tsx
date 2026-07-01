@@ -4,7 +4,7 @@ import AgencyPreviewItem from '@entities/agency/ui/agency-preview-item/AgencyPre
 
 const AgencyPreviewList: React.FC<AgencyPreviewListProps> = ({ agencies }) => {
   return (
-    <ul className="grid grid-cols-3 gap-5">
+    <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {agencies?.map((agency) => (
         <li key={agency.id}>
           <AgencyPreviewItem
