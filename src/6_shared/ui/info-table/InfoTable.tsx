@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const InfoTable: React.FC<InfoTableProps> = ({ info }) => {
   return (
-    <ul className="grid grid-cols-2 gap-6">
+    <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
       {info?.map((item) => (
         <li key={item.label} className="flex flex-col gap-1 border-t border-t-white py-5 text-lg">
           <span className="text-text-secondary">{item.label}</span>

@@ -22,8 +22,8 @@ export const mapAstronaut = (dto: AstronautDTO): Astronaut => ({
     nationality: dto.nationality?.[0]?.nationality_name,
     bio: dto.bio,
     image: {
-      alt: dto.image.name,
-      url: dto.image.image_url,
+      alt: dto.image?.name ?? dto.name,
+      url: dto.image?.image_url,
     },
   },
   careerInfo: {

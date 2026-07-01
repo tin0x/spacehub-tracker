@@ -11,7 +11,7 @@ const UpcomingLaunchSkeleton: React.FC = () => {
           <Skeleton className="mt-2 max-w-2/5 py-2" count={1.2} />
         </div>
 
-        <ul className="flex justify-between gap-4">
+        <ul className="grid-col grid place-items-stretch gap-2 sm:grid-cols-2 lg:grid-cols-4 lg:place-items-center">
           <li className="flex flex-col justify-center gap-2">
             <Skeleton className="rounded-custom-md px-25 py-4" />
             <Skeleton />
@@ -29,7 +29,7 @@ const UpcomingLaunchSkeleton: React.FC = () => {
             <Skeleton />
           </li>
         </ul>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div className="flex flex-col">
             <Skeleton className="mt-2 py-3" count={2} />
           </div>

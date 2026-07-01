@@ -30,13 +30,13 @@ export const mapLaunchPreview = (dto: LaunchPreviewDTO): LaunchPreview => ({
   id: dto.id,
   name: dto.name,
   status: dto.status.abbrev,
-  image: dto.image.thumbnail_url,
+  image: dto.image?.thumbnail_url,
 });
 
 export const mapCurrentLaunch = (dto: CurrentLaunchDTO): CurrentLaunch => ({
   launchInfo: {
     name: dto.name,
-    image: dto.image.image_url,
+    image: dto.image?.image_url,
     rocket: dto.rocket.configuration.name,
     pad: dto.pad.name,
     status: {
@@ -50,7 +50,7 @@ export const mapCurrentLaunch = (dto: CurrentLaunchDTO): CurrentLaunch => ({
     type: dto.launch_service_provider.type.name,
     country: dto.launch_service_provider?.country?.[0]?.name ?? 'unknown',
     admin: dto.launch_service_provider.administrator ?? 'unknown',
-    logo: dto?.launch_service_provider?.logo?.thumbnail_url,
+    logo: dto.launch_service_provider?.logo?.thumbnail_url,
   },
   video: mapVideo(dto),
 });

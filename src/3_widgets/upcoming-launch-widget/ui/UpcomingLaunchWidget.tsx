@@ -16,7 +16,7 @@ const UpcomingLaunchWidget: React.FC = () => {
   if (isError) return <QueryPlaceholder type="error" onClick={handleGoHome} />;
 
   return (
-    <section className="flex flex-col gap-11">
+    <section className="flex flex-col gap-8 md:gap-11">
       <Heading className="items-start" title="Upcoming Launch" />
       <VideoPlayer video={video} fallback={fallback} />
       <Heading title={heading?.name} description={heading?.description} />

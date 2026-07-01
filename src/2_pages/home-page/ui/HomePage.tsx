@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
   useToggleTitle('Home');
 
   return (
-    <Container className="flex flex-col gap-20 py-8">
+    <Container className="flex flex-col gap-10 py-8 md:gap-20">
       <UpcomingLaunchWidget />
       <ArticleListWidget pageKey="home" />
     </Container>

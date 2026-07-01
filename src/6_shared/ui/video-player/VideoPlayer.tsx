@@ -9,8 +9,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ className, video, fallback })
       <div className={cn('aspect-video w-full', className)}>
         <div className="relative h-full w-full">
           <Image className="h-full w-full object-cover" type="video" src={fallback?.url} alt={fallback?.name} />
-          <div className="pointer-events-none absolute bottom-0 left-0 z-50 flex h-20 w-full items-center justify-center bg-black/30 text-xl backdrop-blur-sm">
-            <p>The source is temporarily unavailable.</p>
+          <div className="pointer-events-none absolute bottom-0 left-0 z-50 flex h-10 w-full items-center justify-center bg-black/30 p-2 backdrop-blur-sm sm:text-xl md:h-20">
+            <p className="text-center">The source is temporarily unavailable.</p>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ className, video, fallback })
         <a href={video.url} target="_blank">
           <Image className="h-full w-full object-cover" type="video" src={video.image} alt={video.title} />
         </a>
-        <div className="pointer-events-none absolute bottom-0 left-0 z-50 flex h-20 w-full items-center justify-center bg-black/30 text-xl backdrop-blur-sm">
+        <div className="pointer-events-none absolute bottom-0 left-0 z-50 flex h-10 w-full items-center justify-center bg-black/30 p-2 text-xl backdrop-blur-sm md:h-20">
           <p>The resource is available for viewing on another page.</p>
         </div>
       </div>

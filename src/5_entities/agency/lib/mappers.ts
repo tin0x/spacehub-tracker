@@ -5,8 +5,8 @@ export const mapAgencyPreview = (dto: AgencyPreviewDTO): AgencyPreview => ({
   name: dto?.name ?? 'unknown',
   country: dto.country?.[0]?.alpha_3_code ?? 'unknown',
   logo: {
-    name: dto?.logo?.name ?? dto?.name ?? 'unknown',
-    url: dto?.logo?.thumbnail_url,
+    name: dto.logo?.name ?? dto?.name ?? 'unknown',
+    url: dto.logo?.thumbnail_url,
   },
 });
 

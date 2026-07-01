@@ -14,8 +14,8 @@ const ArticlePreviewItem: React.FC<ArticleItemProps> = ({ id, title, imageURL, d
     >
       <div className="flex min-w-0 flex-1 flex-col">
         <h3 className="text-text-primary group-hover:text-accent mb-2 text-lg font-bold transition-colors">{title}</h3>
-        <p className="text-text-secondary line-clamp-3 text-sm sm:text-base">{description}</p>
-        <div className="mt-auto flex gap-4">
+        <p className="text-text-secondary line-clamp-3">{description}</p>
+        <div className="mt-5 flex flex-col gap-1 lg:mt-auto">
           <time>{`Published: ${formatDate(published, true)}`}</time>
           {isUpdated && <time>{`Updated: ${formatDate(updated, true)}`}</time>}
         </div>

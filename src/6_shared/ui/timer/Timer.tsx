@@ -13,14 +13,14 @@ const Timer: React.FC<TimerProps> = ({ msLeft }) => {
   ];
 
   return (
-    <ul className="flex justify-between gap-4">
+    <ul className="grid grid-cols-1 place-items-stretch gap-2 sm:grid-cols-2 lg:grid-cols-4 lg:place-items-center">
       {timerItems.map((item) => (
         <li key={item.label}>
           <div className="text-text-primary flex flex-col justify-center gap-4 text-center">
             <div className="accentWrapper px-25 py-4">
-              <span className="text-xl font-bold tabular-nums">{item.value}</span>
+              <span className="text-lg font-bold tabular-nums md:text-xl">{item.value}</span>
             </div>
-            <span className="text-lg">{item.label}</span>
+            <span className="md:text-lg">{item.label}</span>
           </div>
         </li>
       ))}
